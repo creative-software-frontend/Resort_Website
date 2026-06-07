@@ -1,13 +1,13 @@
-import logoImg  from '../../assets/image/logo.png';
-import img2      from '../../assets/image/6fa3ef6e-c22d-45b6-a859-b2108f8af13c.jfif';   // Who We Are main
-import img3      from '../../assets/image/3.jfif';   // street-level facade — Mission
-import img4      from '../../assets/image/4.jfif';   // aerial top-down resort — Vision
+import logoImg from '../../assets/image/logo.png';
+import img2 from '../../assets/image/6fa3ef6e-c22d-45b6-a859-b2108f8af13c.jfif';   // Who We Are main
+import img3 from '../../assets/image/3.jfif';   // street-level facade — Mission
+import img4 from '../../assets/image/4.jfif';   // aerial top-down resort — Vision
 
 const SISTER_CONCERNS = [
-  { name: 'One City Developer Ltd',        sub: 'A Trusted Destination for Affordable Land Buying' },
-  { name: 'Goldsands Project Management',  sub: 'Comprehensive and efficient project execution' },
-  { name: 'Goldsands Properties',          sub: 'Luxury apartment project in Dhaka' },
-  { name: 'Goldsands Hotels and Resorts',  sub: 'Number one hotel developer company in Bangladesh' },
+  { name: 'One City Developer Ltd', sub: 'A Trusted Destination for Affordable Land Buying' },
+  { name: 'Goldsands Project Management', sub: 'Comprehensive and efficient project execution' },
+  { name: 'Goldsands Properties', sub: 'Luxury apartment project in Dhaka' },
+  { name: 'Goldsands Hotels and Resorts', sub: 'Number one hotel developer company in Bangladesh' },
 ];
 
 const MISSION_POINTS = [
@@ -62,16 +62,16 @@ const AboutSection: React.FC = () => (
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm font-medium text-gray-700">
                   <span className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs text-white"
-                        style={{ background: 'linear-gradient(135deg,#C9A84C,#fde68a)' }}>✓</span>
+                    style={{ background: 'linear-gradient(135deg,#C9A84C,#fde68a)' }}>✓</span>
                   {item}
                 </li>
               ))}
             </ul>
 
             <a href="#projects"
-               onClick={(e) => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }); }}
-               id="about-see-projects-btn"
-               className="btn-primary">
+              onClick={(e) => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }); }}
+              id="about-see-projects-btn"
+              className="btn-primary">
               See Our Projects
             </a>
           </div>
@@ -84,14 +84,14 @@ const AboutSection: React.FC = () => (
 
             {/* Floating logo card */}
             <div className="absolute -bottom-6 -left-4 glass-card p-4 shadow-card animate-float"
-                 style={{ background: 'white', borderRadius: '20px', boxShadow: '0 8px 40px rgba(26,35,126,0.15)' }}>
+              style={{ background: 'white', borderRadius: '20px', boxShadow: '0 8px 40px rgba(26,35,126,0.15)' }}>
               <div className="flex items-center gap-3">
                 <img src={logoImg} alt="Goldsands Group Logo"
-                     className="w-16 h-16 rounded-full object-contain bg-white border-2 border-gold-300 shadow-gold"
-                     style={{ padding: '3.5px' }} />
+                  className="w-16 h-16 rounded-full object-contain bg-white border-2 border-gold-300 shadow-gold"
+                  style={{ padding: '3.5px' }} />
                 <div>
                   <p className="font-black text-sm leading-none"
-                     style={{ fontFamily: 'Playfair Display, serif', color: '#1a237e' }}>GOLDSANDS</p>
+                    style={{ fontFamily: 'Playfair Display, serif', color: '#1a237e' }}>GOLDSANDS</p>
                   <p className="text-xs tracking-widest uppercase font-medium" style={{ color: '#C9A84C' }}>GROUP</p>
                 </div>
               </div>
@@ -113,7 +113,7 @@ const AboutSection: React.FC = () => (
 
             {/* Accent dot */}
             <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full opacity-20"
-                 style={{ background: 'radial-gradient(circle,#C9A84C,transparent)' }} />
+              style={{ background: 'radial-gradient(circle,#C9A84C,transparent)' }} />
           </div>
         </div>
       </div>
@@ -130,9 +130,9 @@ const AboutSection: React.FC = () => (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SISTER_CONCERNS.map((item, i) => (
             <div key={i}
-                 className="gs-card p-6 text-center hover:shadow-gold transition-all duration-300 hover:-translate-y-2 group">
+              className="gs-card p-6 text-center hover:shadow-gold transition-all duration-300 hover:-translate-y-2 group">
               <div className="w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-black text-lg"
-                   style={{ background: 'linear-gradient(135deg,#1a237e,#0288D1)' }}>
+                style={{ background: 'linear-gradient(135deg,#1a237e,#0288D1)' }}>
                 {i + 1}
               </div>
               <h3 className="font-black text-sm mb-2 leading-snug" style={{ color: '#1a237e' }}>{item.name}</h3>
@@ -169,7 +169,7 @@ const AboutSection: React.FC = () => (
               {MISSION_POINTS.map((point, i) => (
                 <li key={i} className="flex items-start gap-3 group">
                   <span className="flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center text-xs font-black text-white mt-0.5 transition-transform duration-300 group-hover:scale-110"
-                        style={{ background: 'linear-gradient(135deg,#1a237e,#0288D1)' }}>
+                    style={{ background: 'linear-gradient(135deg,#1a237e,#0288D1)' }}>
                     {i + 1}
                   </span>
                   <p className="text-gray-600 text-sm leading-relaxed">{point}</p>
@@ -211,7 +211,7 @@ const AboutSection: React.FC = () => (
             <div className="absolute inset-0" style={{ background: 'linear-gradient(0deg,rgba(26,35,126,0.5) 0%,transparent 60%)' }} />
             <div className="absolute bottom-6 left-6">
               <p className="text-white font-black text-xl" style={{ fontFamily: 'Playfair Display,serif' }}>
-                Building Tomorrow<br/>Today
+                Building Tomorrow<br />Today
               </p>
             </div>
           </div>
@@ -231,7 +231,7 @@ const AboutSection: React.FC = () => (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {VALUES.map((v, i) => (
             <div key={i}
-                 className="gs-card p-6 flex flex-col items-center text-center gap-3
+              className="gs-card p-6 flex flex-col items-center text-center gap-3
                             hover:shadow-gold transition-all duration-300 hover:-translate-y-1 group">
               <span className="text-4xl transition-transform duration-300 group-hover:scale-110">{v.icon}</span>
               <p className="text-gray-700 text-sm font-semibold leading-snug">{v.label}</p>
@@ -256,7 +256,7 @@ const AboutSection: React.FC = () => (
     </div>
 
     {/* ── 6. PREPARED BY OS IT SOLUTIONS LTD ────────────────────────── */}
-    <div className="py-8" style={{ background: 'linear-gradient(135deg,#0a0a18 0%,#1a237e 100%)' }}>
+    {/* <div className="py-8" style={{ background: 'linear-gradient(135deg,#0a0a18 0%,#1a237e 100%)' }}>
       <div className="gs-container">
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left">
           <img src={logoImg} alt="OS IT Solutions Ltd"
@@ -277,7 +277,7 @@ const AboutSection: React.FC = () => (
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
 
   </section>
 );

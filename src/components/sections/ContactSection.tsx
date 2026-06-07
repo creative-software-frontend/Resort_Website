@@ -190,10 +190,10 @@ const ContactSection: React.FC = () => {
               </div>
 
               {/* WhatsApp */}
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-sky-50 border border-sky-100">
+              <div className="flex items-center gap-5 p-4 rounded-2xl bg-sky-50 border border-sky-100">
                 <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-xl flex-shrink-0">💬</div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-sm text-gray-800">WHATS APP</p>
+                  <p className="font-bold text-sm text-gray-800 whitespace-nowrap">WHATSAPP</p>
                   <p className="text-gray-500 text-xs">01877715333</p>
                 </div>
                 <a

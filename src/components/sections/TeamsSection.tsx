@@ -82,7 +82,7 @@ const TeamsSection: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {TEAM_MEMBERS.map((member, idx) => (
+          {TEAM_MEMBERS.map((member) => (
             <motion.div
               key={member.id}
               id={`team-member-${member.id}`}

@@ -1,19 +1,19 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import logoImg from '../../assets/image/logo.png';
 import img2 from '../../assets/image/6fa3ef6e-c22d-45b6-a859-b2108f8af13c.jfif';
 import { Counter } from '../ui/Counter';
 import { useLanguage } from '../../context/LanguageContext';
 import { UI, pick } from '../../data/translations';
 
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
 };
-const fadeInLeft = {
+const fadeInLeft: Variants = {
   hidden: { opacity: 0, x: -30 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } }
 };
-const fadeInRight = {
+const fadeInRight: Variants = {
   hidden: { opacity: 0, x: 30 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } }
 };

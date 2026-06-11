@@ -1,7 +1,6 @@
 import HeroSection from '../components/sections/HeroSection';
 import ServicesSection from '../components/sections/ServicesSection';
 import AboutSection from '../components/sections/AboutSection';
-import TeamsSection from '../components/sections/TeamsSection';
 import StatsSection from '../components/sections/StatsSection';
 import ProjectsPreviewSection from '../components/sections/ProjectsPreviewSection';
 import NewsPreviewSection from '../components/sections/NewsPreviewSection';
@@ -16,7 +15,6 @@ const LandingPage: React.FC = () => (
       <HeroSection />
       <ServicesSection />
       <AboutSection />
-      {/* <TeamsSection /> */}
       <StatsSection />
       <ProjectsPreviewSection />
       <NewsPreviewSection />

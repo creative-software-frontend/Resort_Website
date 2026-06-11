@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PROJECTS } from '../data/landingData';
 import type { Project } from '../types';
 import PageTransition from '../components/PageTransition';

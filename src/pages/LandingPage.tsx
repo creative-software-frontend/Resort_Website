@@ -1,31 +1,30 @@
-import { useLocation } from 'react-router-dom';
-import HeroSection        from '../components/sections/HeroSection';
-import ServicesSection    from '../components/sections/ServicesSection';
-import AboutSection       from '../components/sections/AboutSection';
-import StatsSection       from '../components/sections/StatsSection';
-import ProjectsSection    from '../components/sections/ProjectsSection';
-import GallerySection     from '../components/sections/GallerySection';
+import HeroSection from '../components/sections/HeroSection';
+import ServicesSection from '../components/sections/ServicesSection';
+import AboutSection from '../components/sections/AboutSection';
+import TeamsSection from '../components/sections/TeamsSection';
+import StatsSection from '../components/sections/StatsSection';
+import ProjectsPreviewSection from '../components/sections/ProjectsPreviewSection';
+import NewsPreviewSection from '../components/sections/NewsPreviewSection';
+import GallerySection from '../components/sections/GallerySection';
 import TestimonialsSection from '../components/sections/TestimonialsSection';
-import ContactSection     from '../components/sections/ContactSection';
+import ContactSection from '../components/sections/ContactSection';
+import PageTransition from '../components/PageTransition';
 
-const LandingPage: React.FC = () => {
-  const location = useLocation();
-  const isAboutPage = location.pathname === '/about';
-
-  return (
-    <main id="landing-page" className={isAboutPage ? 'pt-24' : ''}>
-      {!isAboutPage && <HeroSection />}
-      {!isAboutPage && <ServicesSection />}
-      
+const LandingPage: React.FC = () => (
+  <PageTransition id="landing-page">
+    <main>
+      <HeroSection />
+      <ServicesSection />
       <AboutSection />
-      
-      {!isAboutPage && <StatsSection />}
-      {!isAboutPage && <ProjectsSection />}
-      {!isAboutPage && <GallerySection />}
-      {!isAboutPage && <TestimonialsSection />}
-      {!isAboutPage && <ContactSection />}
+      {/* <TeamsSection /> */}
+      <StatsSection />
+      <ProjectsPreviewSection />
+      <NewsPreviewSection />
+      <GallerySection />
+      <TestimonialsSection />
+      <ContactSection />
     </main>
-  );
-};
+  </PageTransition>
+);
 
 export default LandingPage;

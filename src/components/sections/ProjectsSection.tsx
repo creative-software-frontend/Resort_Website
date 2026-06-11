@@ -3,11 +3,11 @@ import { PROJECTS } from '../../data/landingData';
 import type { Project } from '../../types';
 
 type Filter = 'All' | Project['category'];
-const FILTERS: Filter[] = ['All', 'Hotel', 'Resort', 'Apartment', 'Land'];
+const FILTERS: Filter[] = ['All', 'Hotel', 'Hotel', 'Apartment', 'Land'];
 
 const ProjectsSection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<Filter>('All');
-  const [selected,     setSelected]     = useState<Project | null>(null);
+  const [selected, setSelected] = useState<Project | null>(null);
 
   const filtered = activeFilter === 'All'
     ? PROJECTS
@@ -62,12 +62,12 @@ const ProjectsSection: React.FC = () => {
                 {/* Tags */}
                 <div className="absolute top-4 left-4 flex gap-2">
                   <span className="px-3 py-1 rounded-full text-xs font-bold text-white"
-                        style={{ background: 'rgba(26,35,126,0.85)' }}>
+                    style={{ background: 'rgba(26,35,126,0.85)' }}>
                     {project.category}
                   </span>
                   {project.tag && (
                     <span className="px-3 py-1 rounded-full text-xs font-bold"
-                          style={{ background: 'linear-gradient(135deg,#C9A84C,#fde68a)', color: '#0D0D1A' }}>
+                      style={{ background: 'linear-gradient(135deg,#C9A84C,#fde68a)', color: '#0D0D1A' }}>
                       {project.tag}
                     </span>
                   )}
@@ -75,7 +75,7 @@ const ProjectsSection: React.FC = () => {
                 {/* Hover overlay */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300
                                 flex items-center justify-center"
-                     style={{ background: 'linear-gradient(135deg,rgba(26,35,126,0.7),rgba(201,168,76,0.5))' }}>
+                  style={{ background: 'linear-gradient(135deg,rgba(26,35,126,0.7),rgba(201,168,76,0.5))' }}>
                   <span className="text-white font-semibold text-sm bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
                     Learn More →
                   </span>
@@ -96,7 +96,7 @@ const ProjectsSection: React.FC = () => {
                 <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">{project.description}</p>
                 <div className="mt-4 flex items-center gap-4">
                   <button className="text-xs font-semibold transition-all duration-300 hover:translate-x-1"
-                          style={{ color: '#C9A84C' }}>
+                    style={{ color: '#C9A84C' }}>
                     View Details →
                   </button>
                   <span className="text-xs text-gray-300">|</span>
@@ -112,8 +112,8 @@ const ProjectsSection: React.FC = () => {
         <div className="flex justify-center gap-2 mt-8">
           {PROJECTS.map((_, i) => (
             <span key={i}
-                  className={`rounded-full transition-all duration-300 ${i === 0 ? 'w-6 h-2' : 'w-2 h-2 bg-gray-300'}`}
-                  style={i === 0 ? { background: 'linear-gradient(135deg,#1a237e,#0288D1)' } : {}} />
+              className={`rounded-full transition-all duration-300 ${i === 0 ? 'w-6 h-2' : 'w-2 h-2 bg-gray-300'}`}
+              style={i === 0 ? { background: 'linear-gradient(135deg,#1a237e,#0288D1)' } : {}} />
           ))}
         </div>
       </div>
@@ -121,14 +121,14 @@ const ProjectsSection: React.FC = () => {
       {/* Modal */}
       {selected && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4"
-             style={{ background: 'rgba(13,13,26,0.75)', backdropFilter: 'blur(8px)' }}
-             onClick={() => setSelected(null)}>
+          style={{ background: 'rgba(13,13,26,0.75)', backdropFilter: 'blur(8px)' }}
+          onClick={() => setSelected(null)}>
           <div className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full shadow-card-lg animate-fade-up"
-               onClick={(e) => e.stopPropagation()}>
+            onClick={(e) => e.stopPropagation()}>
             <div className="relative h-64">
               <img src={selected.image} alt={selected.name} className="w-full h-full object-cover" />
               <button onClick={() => setSelected(null)}
-                      className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/50 text-white
+                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/50 text-white
                                  flex items-center justify-center hover:bg-black/70 transition-colors text-lg">
                 ×
               </button>

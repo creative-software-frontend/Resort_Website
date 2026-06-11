@@ -1,10 +1,19 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import { LanguageProvider } from './context/LanguageContext';
 import Navbar       from './components/Navbar';
 import Footer       from './components/Footer';
 import ScrollToTop  from './components/ScrollToTop';
 import LandingPage  from './pages/LandingPage';
 import CareerPage   from './pages/CareerPage';
+import AboutPage    from './pages/AboutPage';
+import NewsPage     from './pages/NewsPage';
+import ProjectsPage from './pages/ProjectsPage';
+import TeamPage     from './pages/TeamPage';
+import ContactPage  from './pages/ContactPage';
+import DownloadBrochure from './pages/DownloadBrochure';
+import SendMessagePage from './pages/SendMessagePage';
 
 // Helper component to handle scrolling to hash elements
 const ScrollToHashElement: React.FC = () => {
@@ -28,24 +37,37 @@ const ScrollToHashElement: React.FC = () => {
   return null;
 };
 
+const AnimatedRoutes: React.FC = () => {
+  const location = useLocation();
+  
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/careers" element={<CareerPage />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/our-team" element={<TeamPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/download-brochure" element={<DownloadBrochure />} />
+        <Route path="/send-message" element={<SendMessagePage />} />
+        <Route path="*" element={<LandingPage />} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
 const App: React.FC = () => (
-  <BrowserRouter>
-    <ScrollToHashElement />
-    <Navbar />
-
-    <Routes>
-      {/* Landing page route */}
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/about" element={<LandingPage />} />
-      <Route path="/career" element={<CareerPage />} />
-
-      {/* Catch-all → redirect home */}
-      <Route path="*" element={<LandingPage />} />
-    </Routes>
-
-    <Footer />
-    <ScrollToTop />
-  </BrowserRouter>
+  <LanguageProvider>
+    <BrowserRouter>
+      <ScrollToHashElement />
+      <Navbar />
+      <AnimatedRoutes />
+      <Footer />
+      <ScrollToTop />
+    </BrowserRouter>
+  </LanguageProvider>
 );
 
 export default App;

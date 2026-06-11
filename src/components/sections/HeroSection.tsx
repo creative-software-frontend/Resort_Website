@@ -1,11 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { HERO_SLIDES } from '../../data/landingData';
 import type { HeroSlide } from '../../types';
+import { useLanguage } from '../../context/LanguageContext';
+import { UI, pick } from '../../data/translations';
 
 const HeroSection: React.FC = () => {
   const [current,   setCurrent]   = useState<number>(0);
   const [animating, setAnimating] = useState<boolean>(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const { lang } = useLanguage();
 
   const goTo = (idx: number) => {
     if (animating || idx === current) return;
@@ -30,20 +34,24 @@ const HeroSection: React.FC = () => {
   return (
     <section id="hero" className="relative w-full h-screen min-h-[600px] overflow-hidden">
       {/* Background images */}
-      {HERO_SLIDES.map((s, i) => (
-        <div
-          key={s.id}
-          className="absolute inset-0 transition-opacity duration-700"
-          style={{ opacity: i === current ? 1 : 0, zIndex: i === current ? 1 : 0 }}
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={current}
+          className="absolute inset-0"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: 'easeInOut' }}
+          style={{ zIndex: 1 }}
         >
           <img
-            src={s.image}
-            alt={s.title}
+            src={slide.image}
+            alt={slide.title}
             className="w-full h-full object-cover"
-            loading={i === 0 ? 'eager' : 'lazy'}
+            loading="eager"
           />
-        </div>
-      ))}
+        </motion.div>
+      </AnimatePresence>
 
       {/* Overlay gradient */}
       <div className="absolute inset-0 z-10"
@@ -51,43 +59,72 @@ const HeroSection: React.FC = () => {
 
       {/* Content */}
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
-        <div className={`transition-all duration-500 ${animating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
-          {/* Badge */}
-          <span className="gs-badge mb-6 text-sm animate-fade-in">
-            ✦ {slide.badge}
-          </span>
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={current}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.8, ease: 'easeOut', staggerChildren: 0.2 }}
+            className="flex flex-col items-center"
+          >
+            {/* Badge */}
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="gs-badge mb-6 text-sm"
+            >
+              ✦ {slide.badge}
+            </motion.span>
 
-          {/* Title */}
-          <h1 className="text-white font-black mb-4 max-w-4xl mx-auto animate-fade-up"
-              style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}>
-            {slide.title}
-          </h1>
+            {/* Title */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-white font-black mb-4 max-w-4xl mx-auto"
+              style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}
+            >
+              {slide.title}
+            </motion.h1>
 
-          {/* Subtitle */}
-          <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto mb-8 animate-fade-up delay-200">
-            {slide.subtitle}
-          </p>
+            {/* Subtitle */}
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="text-white/80 text-base md:text-lg max-w-2xl mx-auto mb-8"
+            >
+              {slide.subtitle}
+            </motion.p>
 
-          {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-300">
-            <a href={slide.ctaLink}
-               onClick={(e) => {
-                 if (slide.ctaLink.startsWith('#')) {
-                   e.preventDefault();
-                   document.querySelector(slide.ctaLink)?.scrollIntoView({ behavior: 'smooth' });
-                 }
-               }}
-               id={`hero-cta-${slide.id}`}
-               className="btn-gold font-bold text-base px-8 py-4">
-              {slide.cta}
-            </a>
-            <a href="#about"
-               onClick={(e) => { e.preventDefault(); document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' }); }}
-               className="btn-outline text-white border-white/60 hover:bg-white/20 hover:text-white font-semibold">
-              Who We Are
-            </a>
-          </div>
-        </div>
+            {/* CTA buttons */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+              <a href={slide.ctaLink}
+                 onClick={(e) => {
+                   if (slide.ctaLink.startsWith('#')) {
+                     e.preventDefault();
+                     document.querySelector(slide.ctaLink)?.scrollIntoView({ behavior: 'smooth' });
+                   }
+                 }}
+                 id={`hero-cta-${slide.id}`}
+                 className="btn-gold font-bold text-base px-8 py-4">
+                {slide.cta}
+              </a>
+              <a href="#about"
+                 onClick={(e) => { e.preventDefault(); document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' }); }}
+                 className="btn-outline text-white border-white/60 hover:bg-white/20 hover:text-white font-semibold">
+                Who We Are
+              </a>
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Slide indicators */}
@@ -126,7 +163,7 @@ const HeroSection: React.FC = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 right-8 z-30 hidden md:flex flex-col items-center gap-1 text-white/60">
-        <span className="text-xs tracking-[0.2em] uppercase rotate-90 mb-2">Scroll Down</span>
+        <span className="text-xs tracking-[0.2em] uppercase rotate-90 mb-2">{pick(UI.hero.scrollDown, lang)}</span>
         <div className="w-px h-12 bg-gradient-to-b from-white/60 to-transparent animate-bounce" />
       </div>
     </section>

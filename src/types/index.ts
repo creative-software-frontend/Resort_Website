@@ -1,59 +1,59 @@
 // ── Navigation ───────────────────────────────────────────────────
 export interface NavLink {
   label: string;
-  href:  string;
+  href: string;
   children?: NavLink[];
 }
 
 // ── Hero ─────────────────────────────────────────────────────────
 export interface HeroSlide {
-  id:       number;
-  title:    string;
+  id: number;
+  title: string;
   subtitle: string;
-  badge:    string;
-  image:    string;
-  cta:      string;
-  ctaLink:  string;
+  badge: string;
+  image: string;
+  cta: string;
+  ctaLink: string;
 }
 
 // ── Services ─────────────────────────────────────────────────────
 export interface ServiceCard {
-  id:          number;
-  icon:        string;
-  title:       string;
+  id: number;
+  icon: string;
+  title: string;
   description: string;
-  color:       string;
+  color: string;
 }
 
 // ── Projects ─────────────────────────────────────────────────────
 export interface Project {
-  id:          number;
-  name:        string;
-  location:    string;
-  category:    'Hotel' | 'Resort' | 'Apartment' | 'Land';
-  image:       string;
+  id: number;
+  name: string;
+  location: string;
+  category: 'Hotel' | 'Hotel' | 'Apartment' | 'Land';
+  image: string;
   description: string;
-  tag?:        string;
+  tag?: string;
 }
 
 // ── Testimonials ─────────────────────────────────────────────────
 export interface Testimonial {
-  id:          number;
-  name:        string;
-  role:        string;
-  company:     string;
-  avatar:      string;
-  rating:      number;
-  text:        string;
-  badge?:      string;
+  id: number;
+  name: string;
+  role: string;
+  company: string;
+  avatar: string;
+  rating: number;
+  text: string;
+  badge?: string;
 }
 
 // ── Stats ────────────────────────────────────────────────────────
 export interface Stat {
-  id:    number;
+  id: number;
   value: string;
   label: string;
-  icon:  string;
+  icon: string;
 }
 
 // ── Footer ───────────────────────────────────────────────────────
@@ -64,7 +64,19 @@ export interface FooterColumn {
 
 // ── Partners / Consultants ───────────────────────────────────────
 export interface Partner {
-  id:   number;
+  id: number;
   name: string;
   logo: string;
+}
+
+// ── News ────────────────────────────────────────────────────────
+export interface NewsArticle {
+  id: number;
+  title: string;
+  summary: string;
+  date: string;
+  source: string;
+  href: string;
+  image: string;
+  category: string;
 }

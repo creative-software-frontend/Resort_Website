@@ -6,12 +6,6 @@ const pageVariants = {
   out: { opacity: 0, y: -10 }
 };
 
-const pageTransition = {
-  type: 'tween',
-  ease: 'anticipate',
-  duration: 0.4
-};
-
 const PageTransition: React.FC<{ children: React.ReactNode; id?: string; className?: string }> = ({ children, id, className }) => {
   return (
     <motion.div
@@ -21,7 +15,7 @@ const PageTransition: React.FC<{ children: React.ReactNode; id?: string; classNa
       animate="in"
       exit="out"
       variants={pageVariants}
-      transition={pageTransition}
+
     >
       {children}
     </motion.div>

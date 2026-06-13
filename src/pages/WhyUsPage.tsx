@@ -76,7 +76,7 @@ const WhyUsPage: React.FC = () => {
           </div>
         </section>
 
-        {/* SECTION 3 & 4: AREA OF EXPERTISE (Modernized with Modern Core Layout Variant) */}
+        {/* SECTION 3 & 4: AREA OF EXPERTISE */}
         <section className="gs-section relative overflow-hidden bg-white">
           <div className="gs-container text-center flex flex-col items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
@@ -86,7 +86,6 @@ const WhyUsPage: React.FC = () => {
               </h2>
             </motion.div>
 
-            {/* Expanded high-density blueprint graphics mapping layout framework */}
             <motion.div
               className="mt-8 relative w-full max-w-5xl h-auto flex justify-center px-4"
               variants={floatingAnimation}
@@ -102,12 +101,11 @@ const WhyUsPage: React.FC = () => {
           </div>
         </section>
 
-        {/* SECTION 5: TEAM PROFESSIONALS (Configured with Deep Gradient Navy Background & Embedded Asset) */}
+        {/* SECTION 5: TEAM PROFESSIONALS */}
         <section
           className="gs-section relative text-white overflow-hidden"
           style={{ background: 'linear-gradient(135deg, #1A237E, #0288D1)' }}
         >
-          {/* Layered high-contrast workspace context illustration mapping background layer */}
           <div className="absolute inset-0 z-0 opacity-15 mix-blend-overlay">
             <img
               src={expertise2Img}
@@ -152,7 +150,7 @@ const WhyUsPage: React.FC = () => {
           </div>
         </section>
 
-        {/* SECTION 6: PROJECT DETAILING (Modernized with Lucide Icons) */}
+        {/* SECTION 6: PROJECT DETAILING */}
         <section className="gs-section bg-white text-center">
           <div className="gs-container">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
@@ -207,7 +205,7 @@ const WhyUsPage: React.FC = () => {
             >
               {t.values.items.map((value, idx) => (
                 <motion.div key={idx} variants={fadeInUp} className="gs-card p-6 bg-white rounded-xl shadow-sm border-t-4 border-[var(--color-primary)] hover:border-[var(--color-secondary)] transition-colors">
-                  <h4 className={`text-lg font-bold mb-3 ${value.isHighlighted ? 'text-[var(--color-secondary)]' : 'text-[var(--color-primary)]'}`}>
+                  <h4 className={`text-lg font-bold mb-3 ${('isHighlighted' in value && value.isHighlighted) ? 'text-[var(--color-secondary)]' : 'text-[var(--color-primary)]'}`}>
                     {pick(value.title, lang)}
                   </h4>
                   <p className="text-[var(--color-gray)] text-sm leading-relaxed">

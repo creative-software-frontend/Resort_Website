@@ -1,9 +1,25 @@
+import React from 'react';
 import AboutSection from '../components/sections/AboutSection';
 import PageTransition from '../components/PageTransition';
 import PageHero from '../components/PageHero';
 import heroImg from '../assets/image/6fa3ef6e-c22d-45b6-a859-b2108f8af13c.jfif';
 import { Counter } from '../components/ui/Counter';
 import { STATS } from '../data/landingData';
+
+// Premium Lucide Icons integrated
+import {
+  Award,
+  TrendingUp,
+  ShieldCheck,
+  Users,
+  Compass,
+  Flag,
+  HeartHandshake,
+  Heart,
+  Scale,
+  SmilePlus,
+  Check
+} from 'lucide-react';
 
 const AboutPage: React.FC = () => (
   <PageTransition id="about-page">
@@ -29,15 +45,17 @@ const AboutPage: React.FC = () => (
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: '🏆', title: 'Quality First', body: 'Ensure high quality products with the most modern & innovative concepts.' },
-              { icon: '🌱', title: 'Economic Growth', body: 'Grow the economy by reducing poverty & unemployment across Bangladesh.' },
-              { icon: '💰', title: 'Safe Investment', body: 'Create tension-free sources of income by providing guaranteed & safe investment returns.' },
-              { icon: '🤝', title: 'Client Priority', body: 'Give the highest priority and ensure the best service to all our valued clients.' },
-              { icon: '🌍', title: 'Tourism Vision', body: 'Make Bangladesh one of the top tourism destinations in the world.' },
-              { icon: '🇧🇩', title: 'National Pride', body: 'Make the nation prestigious & wealthy through excellence in hospitality.' },
+              { icon: <Award className="w-6 h-6 text-[#C9A84C]" />, title: 'Quality First', body: 'Ensure high quality products with the most modern & innovative concepts.' },
+              { icon: <TrendingUp className="w-6 h-6 text-[#0288D1]" />, title: 'Economic Growth', body: 'Grow the economy by reducing poverty & unemployment across Bangladesh.' },
+              { icon: <ShieldCheck className="w-6 h-6 text-[#1a237e]" />, title: 'Safe Investment', body: 'Create tension-free sources of income by providing guaranteed & safe investment returns.' },
+              { icon: <Users className="w-6 h-6 text-[#C9A84C]" />, title: 'Client Priority', body: 'Give the highest priority and ensure the best service to all our valued clients.' },
+              { icon: <Compass className="w-6 h-6 text-[#0288D1]" />, title: 'Tourism Vision', body: 'Make Bangladesh one of the top tourism destinations in the world.' },
+              { icon: <Flag className="w-6 h-6 text-[#1a237e]" />, title: 'National Pride', body: 'Make the nation prestigious & wealthy through excellence in hospitality.' },
             ].map((m, i) => (
-              <div key={i} className="gs-card p-6 hover:shadow-gold transition-all duration-300 hover:-translate-y-1 group">
-                <span className="text-3xl mb-4 block transition-transform duration-300 group-hover:scale-110">{m.icon}</span>
+              <div key={i} className="gs-card p-6 hover:shadow-gold transition-all duration-300 hover:-translate-y-1 group border border-slate-100 rounded-xl bg-white">
+                <div className="p-3 bg-slate-50 w-fit rounded-lg mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:bg-slate-100">
+                  {m.icon}
+                </div>
                 <h3 className="font-black text-sm mb-2" style={{ color: '#1a237e' }}>{m.title}</h3>
                 <p className="text-gray-500 text-xs leading-relaxed">{m.body}</p>
               </div>
@@ -98,9 +116,11 @@ const AboutPage: React.FC = () => (
               </div>
 
               {/* Trust Indicator */}
-              <div className="mt-8 p-4 bg-[#1a237e] rounded-xl text-white flex items-center gap-4">
-                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#C9A84C]/20 text-[#C9A84C] font-bold">✓</div>
-                <p className="text-sm">Trusted by 5,000+ investors globally for excellence and integrity.</p>
+              <div className="mt-8 p-4 bg-[#1a237e] rounded-xl text-white flex items-center gap-4 shadow-lg shadow-blue-900/10">
+                <div className="w-10 h-10 flex flex-shrink-0 items-center justify-center rounded-full bg-[#C9A84C]/20 text-[#C9A84C]">
+                  <Check className="w-5 h-5 stroke-[3]" />
+                </div>
+                <p className="text-sm font-medium">Trusted by 5,000+ investors globally for excellence and integrity.</p>
               </div>
             </div>
           </div>
@@ -117,19 +137,21 @@ const AboutPage: React.FC = () => (
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: '🤝', label: 'Always Customer First — Customer Priority — Customer Focused' },
-              { icon: '💬', label: 'Sharing both happiness & sadness' },
-              { icon: '⚖️', label: 'Respect & Responsibility' },
-              { icon: '❤️', label: 'Honesty, Caring & Trust' },
+              { icon: <HeartHandshake className="w-8 h-8 text-[#1a237e]" />, label: 'Always Customer First — Customer Priority — Customer Focused' },
+              { icon: <SmilePlus className="w-8 h-8 text-[#0288D1]" />, label: 'Sharing both happiness & sadness' },
+              { icon: <Scale className="w-8 h-8 text-[#C9A84C]" />, label: 'Respect & Responsibility' },
+              { icon: <Heart className="w-8 h-8 text-rose-500" />, label: 'Honesty, Caring & Trust' },
             ].map((v, i) => (
-              <div key={i} className="gs-card p-6 flex flex-col items-center text-center gap-3 hover:shadow-gold transition-all duration-300 hover:-translate-y-1 group">
-                <span className="text-4xl transition-transform duration-300 group-hover:scale-110">{v.icon}</span>
+              <div key={i} className="gs-card p-6 flex flex-col items-center text-center gap-4 hover:shadow-gold transition-all duration-300 hover:-translate-y-1 group border border-slate-50 bg-slate-50/30 rounded-xl">
+                <div className="transition-transform duration-300 group-hover:scale-110">
+                  {v.icon}
+                </div>
                 <p className="text-gray-700 text-sm font-semibold leading-snug">{v.label}</p>
               </div>
             ))}
           </div>
         </div>
-      </div> {/* Closed Values div */}
+      </div>
 
     </main>
   </PageTransition>

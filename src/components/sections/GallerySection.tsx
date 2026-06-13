@@ -56,7 +56,7 @@ const GallerySection: React.FC = () => {
   }, [lightbox]);
 
   return (
-    <section id="gallery" className="gs-section" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f0f4ff 100%)' }}>
+    <section id="gallery" className="pt-0 pb-12" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f0f4ff 100%)' }}>
       <div className="gs-container">
 
         {/* Heading */}

@@ -30,7 +30,8 @@ const AboutSection: React.FC = () => {
     <section id="about" className="overflow-hidden" style={{ background: 'linear-gradient(180deg,#f0f4ff 0%,#ffffff 100%)' }}>
 
       {/* ── 1. WHO WE ARE ── */}
-      <div className="gs-section pb-0">
+      {/* Fixed: Changed pb-0 to responsive bottom padding to handle the absolute floating layout element gracefully */}
+      <div className="gs-section pb-20 md:pb-16 lg:pb-20">
         <div className="gs-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
@@ -58,7 +59,7 @@ const AboutSection: React.FC = () => {
             </motion.div>
 
             {/* Right — image */}
-            <motion.div className="relative" variants={fadeInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}>
+            <motion.div className="relative mt-8 lg:mt-0" variants={fadeInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}>
               <div className="rounded-3xl overflow-hidden img-overlay shadow-card-lg h-80 md:h-[480px]">
                 <motion.img
                   whileHover={{ scale: 1.05 }} transition={{ duration: 0.8 }}
@@ -68,7 +69,7 @@ const AboutSection: React.FC = () => {
               </div>
 
               {/* Floating logo card */}
-              <div className="absolute -bottom-6 -left-4 glass-card p-4 shadow-card animate-float"
+              <div className="absolute -bottom-10 md:-bottom-6 -left-2 md:-left-4 glass-card p-4 shadow-card animate-float z-10"
                 style={{ background: 'white', borderRadius: '20px', boxShadow: '0 8px 40px rgba(26,35,126,0.15)' }}>
                 <div className="flex items-center gap-3">
                   <img src={logoImg} alt="Shifa Properties Ltd Group Logo"
@@ -98,10 +99,10 @@ const AboutSection: React.FC = () => {
               <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full opacity-20"
                 style={{ background: 'radial-gradient(circle,#C9A84C,transparent)' }} />
             </motion.div>
+
           </div>
         </div>
       </div>
-
       {/* ── 2. SISTER CONCERN ── */}
       <div className="gs-section py-20" style={{ background: 'linear-gradient(135deg,#e8f4fd 0%,#dbeeff 100%)' }}>
         <div className="gs-container">

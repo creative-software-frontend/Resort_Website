@@ -4,13 +4,23 @@ import { PROJECTS } from '../data/landingData';
 import type { Project } from '../types';
 import PageTransition from '../components/PageTransition';
 
+import { useLanguage } from '../context/LanguageContext';
+
 type Filter = 'All' | Project['category'];
-const FILTERS: Filter[] = ['All', 'Hotel', 'Hotel', 'Apartment', 'Land'];
+const FILTERS: { value: Filter; label: { en: string; bn: string } }[] = [
+  { value: 'All', label: { en: 'All', bn: 'সব' } },
+  { value: 'Hotel', label: { en: 'Hotel', bn: 'হোটেল' } },
+  { value: 'Apartment', label: { en: 'Apartment', bn: 'অ্যাপার্টমেন্ট' } },
+  { value: 'Land', label: { en: 'Land', bn: 'জমি' } },
+];
 
 const ProjectsPage: React.FC = () => {
+  const { lang } = useLanguage();
+  const pick = (obj: { en: string; bn: string }) => lang === 'EN' ? obj.en : obj.bn;
+
   const [activeFilter, setActiveFilter] = useState<Filter>('All');
   const [selected, setSelected] = useState<Project | null>(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const filtered =
     activeFilter === 'All'
@@ -38,16 +48,16 @@ const ProjectsPage: React.FC = () => {
           <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
             {FILTERS.map((filter) => (
               <button
-                key={filter}
-                id={`projects-filter-${filter.toLowerCase()}`}
-                onClick={() => setActiveFilter(filter)}
+                key={filter.value}
+                id={`projects-filter-${filter.value.toLowerCase()}`}
+                onClick={() => setActiveFilter(filter.value)}
                 className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300
-                ${activeFilter === filter
+                ${activeFilter === filter.value
                     ? 'text-white shadow-gold scale-105'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
-                style={activeFilter === filter ? { background: 'linear-gradient(135deg,#1a237e,#0288D1)' } : {}}
+                style={activeFilter === filter.value ? { background: 'linear-gradient(135deg,#1a237e,#0288D1)' } : {}}
               >
-                {filter}
+                {pick(filter.label)}
               </button>
             ))}
           </div>

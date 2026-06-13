@@ -30,7 +30,7 @@ export interface Project {
   id: number;
   name: string;
   location: string;
-  category: 'Hotel' | 'Hotel' | 'Apartment' | 'Land';
+  category: 'Hotel' | 'Apartment' | 'Land';
   image: string;
   description: string;
   tag?: string;

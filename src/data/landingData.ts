@@ -180,7 +180,6 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     links: [
       { label: 'All Projects', href: '/projects' },
       { label: 'Hotels', href: '/projects' },
-      { label: 'Hotels', href: '/projects' },
       { label: 'Apartments', href: '/projects' },
     ],
   },

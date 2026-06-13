@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const navRef = useRef<HTMLElement>(null);
   const dropRef = useRef<HTMLDivElement>(null);
-  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const closeTimeoutRef = useRef<number | null>(null);
 
   const handleMouseEnter = (label: string) => {
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);

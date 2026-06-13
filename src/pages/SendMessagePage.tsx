@@ -59,7 +59,7 @@ const SendMessagePage: React.FC = () => {
   return (
     <PageTransition id="send-message-page">
       {/* ── PREMIUM INQUIRY FORM ────────────────────────────────────────── */}
-      <div className="py-16 px-4 bg-white border-t border-sky-100">
+      <div className="py-16 pt-32 px-4 bg-white border-t border-sky-100">
         <div className="max-w-4xl mx-auto">
           <motion.div
             className="bg-sky-50/50 rounded-3xl p-8 md:p-12 border border-sky-100 shadow-sm relative overflow-hidden"

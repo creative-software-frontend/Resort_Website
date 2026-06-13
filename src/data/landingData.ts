@@ -22,7 +22,7 @@ export const NAV_LINKS: NavLink[] = [
   {
     label: 'Company', href: '#',
     children: [
-      { label: 'Why Us', href: '#about' },
+      { label: 'Why Us', href: '/why-us' },
       { label: 'About Us', href: '/about' },
       { label: 'Our Teams', href: '/our-team' },
       { label: 'Career', href: '/careers' },
@@ -169,7 +169,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: 'Company',
     links: [
-      { label: 'Why Us', href: '#about' },
+      { label: 'Why Us', href: '/why-us' },
       { label: 'About Us', href: '/about' },
       { label: 'Our Teams', href: '/our-team' },
       { label: 'Career', href: '/careers' },

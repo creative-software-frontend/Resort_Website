@@ -112,7 +112,12 @@ const Navbar: React.FC = () => {
 
             if (hasChildren) {
               return (
-                <li key={link.label} className="relative">
+                <li 
+                  key={link.label} 
+                  className="relative group"
+                  onMouseEnter={() => setOpenDropdown(link.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
                   <button
                     id={`nav-${link.label.toLowerCase()}-dropdown`}
                     onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
@@ -155,9 +160,9 @@ const Navbar: React.FC = () => {
                               setOpenDropdown(null);
                             }
                           }}
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-navy-50 hover:text-navy-600 transition-colors duration-200 group"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-navy-50 hover:text-navy-600 transition-colors duration-200 group/link"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-gold-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex-shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 opacity-0 group-hover/link:opacity-100 transition-opacity duration-200 flex-shrink-0" />
                           {child.label}
                         </a>
                       ))}

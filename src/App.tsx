@@ -14,6 +14,7 @@ import TeamPage     from './pages/TeamPage';
 import ContactPage  from './pages/ContactPage';
 import DownloadBrochure from './pages/DownloadBrochure';
 import SendMessagePage from './pages/SendMessagePage';
+import WhyUsPage from './pages/WhyUsPage';
 
 // Helper component to handle scrolling to hash elements
 const ScrollToHashElement: React.FC = () => {
@@ -44,6 +45,7 @@ const AnimatedRoutes: React.FC = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/why-us" element={<WhyUsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/careers" element={<CareerPage />} />
         <Route path="/news" element={<NewsPage />} />

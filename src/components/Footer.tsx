@@ -301,28 +301,31 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-
         {/* BOTTOM COMPLIANCE LAYER: Fixed alignment to force a clean single row */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left w-full md:w-auto">
-            <p className="text-gray-500 text-xs">
+        <div className="pt-8 flex flex-col lg:flex-row items-center justify-between gap-6 w-full border-t border-gray-100">
+
+          {/* Left & Middle Links: Enforced single row structure on desktop */}
+          <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left w-auto">
+            <p className="text-gray-500 text-xs lg:whitespace-nowrap">
               © {currentYear} Shifa Properties Ltd Group. All real estate and hotel holdings follow dynamic local property ordinances.
             </p>
-            <span className="hidden md:inline text-slate-800">|</span>
-            <div className="flex items-center justify-center gap-4">
-              <Link to="/privacy" className="text-gray-500 hover:text-slate-300 text-xs transition-colors flex items-center gap-1 whitespace-nowrap">
+
+            <span className="hidden md:inline text-gray-300">|</span>
+
+            <div className="flex items-center justify-center gap-4 flex-shrink-0">
+              <Link to="/privacy" className="text-gray-500 hover:text-slate-800 text-xs transition-colors flex items-center gap-1 whitespace-nowrap">
                 <ShieldAlert className="w-3 h-3" /> Privacy Policy
               </Link>
-              <span className="text-slate-800">|</span>
-              <Link to="/terms" className="text-gray-500 hover:text-slate-300 text-xs transition-colors flex items-center gap-1 whitespace-nowrap">
+              <span className="text-gray-300">|</span>
+              <Link to="/terms" className="text-gray-500 hover:text-slate-800 text-xs transition-colors flex items-center gap-1 whitespace-nowrap">
                 <FileText className="w-3 h-3" /> Terms of Service
               </Link>
             </div>
           </div>
 
-          {/* Software Integrator Seal */}
+          {/* Right: Software Integrator Seal */}
           <div className="flex items-center gap-2.5 py-2 px-4 bg-slate-950/60 border border-slate-900 rounded-full shadow-inner flex-shrink-0">
-            <span className="text-slate-500 text-[11px] font-medium tracking-wide whitespace-nowrap">Technology Partner</span>
+            <span className="text-slate-400 text-[11px] font-medium tracking-wide whitespace-nowrap">Technology Partner</span>
             <span className="w-1 h-1 rounded-full bg-slate-800" />
             <a
               href="https://osit.com.bd"

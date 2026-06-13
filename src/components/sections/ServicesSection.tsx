@@ -1,4 +1,5 @@
 import { motion, type Variants } from 'framer-motion';
+import { Hotel, Building2, Map } from 'lucide-react';
 import servicesImg from '../../assets/image/1.jfif';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
@@ -14,9 +15,9 @@ const staggerContainer: Variants = {
 };
 
 const SERVICES_DATA = [
-  { id: 1, icon: '🏨', color: '#1a237e', key: 'hotel' as const },
-  { id: 2, icon: '🏢', color: '#C9A84C', key: 'apartment' as const },
-  { id: 3, icon: '🗺️', color: '#0288D1', key: 'land' as const },
+  { id: 1, icon: <Hotel size={40} />, color: '#1a237e', key: 'hotel' as const },
+  { id: 2, icon: <Building2 size={40} />, color: '#C9A84C', key: 'apartment' as const },
+  { id: 3, icon: <Map size={40} />, color: '#0288D1', key: 'land' as const },
 ];
 
 const ServicesSection: React.FC = () => {

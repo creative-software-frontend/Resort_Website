@@ -13,6 +13,58 @@ export const UI = {
     whoWeAre: { en: 'Who We Are', bn: 'আমরা কারা' },
   },
 
+  /* ─── WHY US PAGE ────────────────────────────────────────────────── */
+  whyUs: {
+    heroTitle: { en: 'Why Choose US?', bn: 'কেন আমাদের বেছে নেবেন?' },
+    
+    empower: {
+      title: { en: 'Empower Your Business With Our Solutions', bn: 'আমাদের সমাধানের মাধ্যমে আপনার ব্যবসাকে শক্তিশালী করুন' },
+      desc: { en: "We're in the business of providing best ITeS services whether you use our simplified products, solutions, or both, we will take care of your business needs.", bn: 'আমরা সেরা আইটিইএস (ITeS) পরিষেবা প্রদানের ব্যবসায় নিয়োজিত। আপনি আমাদের সরলীকৃত পণ্য, সমাধান বা উভয়ই ব্যবহার করুন না কেন, আমরা আপনার ব্যবসায়িক চাহিদার যত্ন নেব।' }
+    },
+    
+    expertise: {
+      label: { en: 'Area of our Expertise', bn: 'আমাদের দক্ষতার ক্ষেত্র' },
+      title: { en: 'Conduct Admirable Product Management', bn: 'প্রশংসনীয় পণ্য ব্যবস্থাপনা পরিচালনা' },
+      badge1: { en: 'Design & provide solution architecture', bn: 'সমাধান আর্কিটেকচার ডিজাইন এবং প্রদান' },
+      badge2: { en: 'Consulting & Training', bn: 'পরামর্শ এবং প্রশিক্ষণ' }
+    },
+
+    team: {
+      desc: { en: 'We are comprised of 30+ Professionals. We develop enterprise applications and provide services for database & cloud technology.', bn: 'আমরা ৩০ জনেরও বেশি পেশাদারদের নিয়ে গঠিত। আমরা এন্টারপ্রাইজ অ্যাপ্লিকেশন তৈরি করি এবং ডাটাবেস ও ক্লাউড প্রযুক্তির জন্য পরিষেবা প্রদান করি।' },
+      list: [
+        { en: 'Project Manager', bn: 'প্রজেক্ট ম্যানেজার' },
+        { en: 'Architect', bn: 'আর্কিটেক্ট' },
+        { en: 'Developer', bn: 'ডেভেলপার' },
+        { en: 'SQA', bn: 'এসকিউএ (SQA)' },
+        { en: 'UI & UX Designer', bn: 'ইউআই এবং ইউএক্স ডিজাইনার' },
+        { en: 'Blockchain Experts', bn: 'ব্লকচেইন বিশেষজ্ঞ' },
+        { en: 'Consultants', bn: 'পরামর্শক' },
+        { en: 'Web designer', bn: 'ওয়েব ডিজাইনার' }
+      ]
+    },
+
+    detailing: {
+      title: { en: 'We Focus on Project detailing', bn: 'আমরা প্রকল্পের পুঙ্খানুপুঙ্খ বিবরণে ফোকাস করি' },
+      box1: { en: 'No hidden costs & strong market credibility.', bn: 'কোনো লুকানো খরচ নেই এবং বাজারে শক্তিশালী নির্ভরযোগ্যতা।' },
+      box2: { en: 'Our solutions add value to customers.', bn: 'আমাদের সমাধান গ্রাহকদের মূল্য সংযোজন করে।' },
+      box3: { en: 'Single point of contact (SPOC).', bn: 'একক যোগাযোগ মাধ্যম (SPOC)।' }
+    },
+
+    values: {
+      title: { en: 'Our Values', bn: 'আমাদের মূল্যবোধ' },
+      items: [
+        { title: { en: 'Customer', bn: 'গ্রাহক' }, desc: { en: 'Treat customers, employees and society with integrity and transparency.', bn: 'গ্রাহক, কর্মচারী এবং সমাজকে সততা ও স্বচ্ছতার সাথে মূল্যায়ন করা।' }, isHighlighted: true },
+        { title: { en: 'Team Work', bn: 'দলগত কাজ' }, desc: { en: 'We believe that we will be strong if we work as a team, nurturing, encouraging and assisting each other.', bn: 'আমরা বিশ্বাস করি যে আমরা একটি দল হিসাবে কাজ করলে শক্তিশালী হব, একে অপরকে লালন, উত্সাহিত এবং সহায়তা করব।' } },
+        { title: { en: 'Community', bn: 'সম্প্রদায়' }, desc: { en: 'We are living and working in a community where we should contribute within our scope and vision.', bn: 'আমরা এমন এক সমাজে বাস ও কাজ করছি যেখানে আমাদের লক্ষ্য ও পরিধির মধ্যে অবদান রাখা উচিত।' } },
+        { title: { en: 'Entrepreneurship', bn: 'উদ্যোক্তা' }, desc: { en: 'We believe in entrepreneurship. We encourage our employees to think outside the box and continuously innovate to achieve the goals.', bn: 'আমরা উদ্যোক্তাবৃত্তিতে বিশ্বাস করি। আমরা আমাদের কর্মীদের নতুন কিছু চিন্তা করতে এবং লক্ষ্য অর্জনে ক্রমাগত উদ্ভাবন করতে উত্সাহিত করি।' } },
+        { title: { en: 'Partner', bn: 'অংশীদার' }, desc: { en: 'We value their contribution and try to help in achieving their organizational goal within our scope.', bn: 'আমরা তাদের অবদানকে মূল্য দিই এবং আমাদের পরিধির মধ্যে তাদের প্রাতিষ্ঠানিক লক্ষ্য অর্জনে সহায়তা করার চেষ্টা করি।' } },
+        { title: { en: 'Employee', bn: 'কর্মচারী' }, desc: { en: 'Establishing an organization based on caring, innovation and quality.', bn: 'যত্ন, উদ্ভাবন এবং গুণমানের উপর ভিত্তি করে একটি প্রতিষ্ঠান প্রতিষ্ঠা করা।' } },
+        { title: { en: 'Efficiency', bn: 'দক্ষতা' }, desc: { en: 'Enabling employees to reach their full potential and reward wealth creation.', bn: 'কর্মীদের তাদের পূর্ণ সম্ভাবনায় পৌঁছাতে সক্ষম করা এবং সম্পদ সৃষ্টিতে পুরস্কৃত করা।' } },
+        { title: { en: 'Cost-Efficiency', bn: 'ব্যয়-দক্ষতা' }, desc: { en: 'Reducing cost of clients and enhancing performance.', bn: 'ক্লায়েন্টদের খরচ কমানো এবং কর্মক্ষমতা বৃদ্ধি করা।' } }
+      ]
+    }
+  },
+
   /* ─── SERVICES ──────────────────────────────────────────────────── */
   services: {
     label: { en: 'What We Offer', bn: 'আমরা কী দিই' },

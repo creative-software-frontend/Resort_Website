@@ -14,6 +14,24 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const navRef = useRef<HTMLElement>(null);
   const dropRef = useRef<HTMLDivElement>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = (label: string) => {
+    if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    setOpenDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    };
+  }, []);
 
   const isScrolledPage = location.pathname !== '/';
 
@@ -115,12 +133,12 @@ const Navbar: React.FC = () => {
                 <li 
                   key={link.label} 
                   className="relative group"
-                  onMouseEnter={() => setOpenDropdown(link.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter(link.label)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <button
                     id={`nav-${link.label.toLowerCase()}-dropdown`}
-                    onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                    onClick={(e) => { e.preventDefault(); setOpenDropdown(link.label); }}
                     className={`flex items-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300
                       ${isLight
                         ? 'text-gray-700 hover:text-navy-500 hover:bg-navy-50'
@@ -137,10 +155,11 @@ const Navbar: React.FC = () => {
                   </button>
 
                   {/* Dropdown menu */}
-                  <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-300
+                  <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-300
                     ${openDropdown === link.label ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
-                    {/* Gold accent bar */}
-                    <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg,#1a237e,#C9A84C)' }} />
+                    <div className="w-52 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                      {/* Gold accent bar */}
+                      <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg,#1a237e,#C9A84C)' }} />
                     <div className="py-2">
                       {link.children!.map((child) => (
                         <a
@@ -167,6 +186,7 @@ const Navbar: React.FC = () => {
                         </a>
                       ))}
                     </div>
+                  </div>
                   </div>
                 </li>
               );

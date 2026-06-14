@@ -2,10 +2,10 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 /**
- * Neo-Brutalist EN / BN sliding toggle.
- * - Solid black border + offset drop-shadow block effect
- * - Deep navy/gold brand palette (no hardcoded purple)
- * - Smooth CSS transform slider
+ * Clean corporate EN / BN toggle matching image_5718fc.png layout
+ * - Soft rounded corners & clean gray border
+ * - Brand-aligned text states (Navy / Gold / Muted Slate)
+ * - Minimalist middle dividing line layout
  */
 const LanguageToggle: React.FC = () => {
   const { lang, toggleLang } = useLanguage();
@@ -16,102 +16,78 @@ const LanguageToggle: React.FC = () => {
       onClick={toggleLang}
       aria-label="Toggle language"
       id="lang-toggle-btn"
+      className="group"
       style={{
         position: 'relative',
         display: 'inline-flex',
         alignItems: 'center',
-        width: '86px',
-        height: '34px',
-        borderRadius: '4px',
-        border: '2px solid #0D0D1A',
-        boxShadow: '3px 3px 0px #0D0D1A',
-        background: isEN ? '#1a237e' : '#C9A84C',
+        justifyContent: 'center',
+        width: '94px',
+        height: '36px',
+        borderRadius: '10px',
+        border: '1px solid #E2E8F0', // Soft modern border matching image context
+        background: '#FFFFFF',
         cursor: 'pointer',
         flexShrink: 0,
-        transition: 'background 0.3s ease, box-shadow 0.1s ease',
+        transition: 'all 0.2s ease',
         padding: 0,
-        overflow: 'hidden',
+        outline: 'none',
+        boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
       }}
-      onMouseDown={e => {
-        (e.currentTarget as HTMLButtonElement).style.boxShadow = '1px 1px 0px #0D0D1A';
-        (e.currentTarget as HTMLButtonElement).style.transform = 'translate(2px,2px)';
-      }}
-      onMouseUp={e => {
-        (e.currentTarget as HTMLButtonElement).style.boxShadow = '3px 3px 0px #0D0D1A';
-        (e.currentTarget as HTMLButtonElement).style.transform = 'translate(0,0)';
+      onMouseEnter={e => {
+        e.currentTarget.style.borderColor = '#CBD5E1';
+        e.currentTarget.style.backgroundColor = '#F8FAFC';
       }}
       onMouseLeave={e => {
-        (e.currentTarget as HTMLButtonElement).style.boxShadow = '3px 3px 0px #0D0D1A';
-        (e.currentTarget as HTMLButtonElement).style.transform = 'translate(0,0)';
+        e.currentTarget.style.borderColor = '#E2E8F0';
+        e.currentTarget.style.backgroundColor = '#FFFFFF';
       }}
     >
-      {/* BN label (left) */}
-      <span
-        style={{
-          position: 'absolute',
-          left: '8px',
-          fontSize: '10px',
-          fontWeight: 900,
-          letterSpacing: '0.08em',
-          color: isEN ? 'rgba(255,255,255,0.55)' : '#0D0D1A',
-          transition: 'color 0.3s ease',
-          userSelect: 'none',
-          zIndex: 1,
-          fontFamily: 'Inter, sans-serif',
-        }}
-      >
-        বাং
-      </span>
+      {/* Container holding labels and the middle separator line */}
+      <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
 
-      {/* EN label (right) */}
-      <span
-        style={{
-          position: 'absolute',
-          right: '8px',
-          fontSize: '10px',
-          fontWeight: 900,
-          letterSpacing: '0.08em',
-          color: isEN ? '#0D0D1A' : 'rgba(255,255,255,0.55)',
-          transition: 'color 0.3s ease',
-          userSelect: 'none',
-          zIndex: 1,
-          fontFamily: 'Inter, sans-serif',
-        }}
-      >
-        EN
-      </span>
-
-      {/* Sliding white pill block */}
-      <span
-        style={{
-          position: 'absolute',
-          top: '3px',
-          bottom: '3px',
-          width: '38px',
-          borderRadius: '3px',
-          background: '#ffffff',
-          border: '1.5px solid #0D0D1A',
-          transform: isEN ? 'translateX(41px)' : 'translateX(1px)',
-          transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.12)',
-          zIndex: 2,
-        }}
-      >
-        {/* Dial indicator pill */}
+        {/* EN Side */}
         <span
           style={{
-            width: '18px',
-            height: '6px',
-            borderRadius: '99px',
-            background: isEN ? '#1a237e' : '#C9A84C',
-            transition: 'background 0.3s ease',
-            display: 'block',
+            flex: 1,
+            textAlign: 'center',
+            fontSize: '13px',
+            fontWeight: 700,
+            color: isEN ? '#1a237e' : '#94A3B8', // Active Navy vs Muted Gray
+            transition: 'color 0.2s ease',
+            userSelect: 'none',
+            fontFamily: 'Inter, system-ui, sans-serif',
+          }}
+        >
+          EN
+        </span>
+
+        {/* Center Vertical Divider Line (Matches image_5718fc.png perfectly) */}
+        <span
+          style={{
+            height: '16px',
+            width: '1px',
+            backgroundColor: '#E2E8F0',
           }}
         />
-      </span>
+
+        {/* BN Side */}
+        <span
+          style={{
+            flex: 1,
+            textAlign: 'center',
+            fontSize: '13px',
+            fontWeight: 700,
+            color: !isEN ? '#C9A84C' : '#94A3B8', // Active Gold vs Muted Gray
+            transition: 'color 0.2s ease',
+            userSelect: 'none',
+            fontFamily: 'Inter, system-ui, sans-serif',
+          }}
+        >
+          বাং
+        </span>
+
+      </div>
     </button>
   );
 };

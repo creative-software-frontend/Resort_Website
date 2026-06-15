@@ -1,9 +1,29 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { NAV_LINKS } from '../data/landingData';
 import logoImg from '../assets/image/logo.png';
 import logo from '../assets/image/logo2.png';
 import LanguageToggle from './LanguageToggle';
+import { useLanguage } from '../context/LanguageContext';
+import { UI, pick } from '../data/translations';
+
+// Bilingual nav structure — labels come from translations, hrefs stay static
+const getNavLinks = (lang: 'EN' | 'BN') => [
+  { label: pick(UI.nav.home, lang), href: '/' },
+  {
+    label: pick(UI.nav.company, lang),
+    href: '#',
+    children: [
+      { label: pick(UI.nav.whyUs, lang),    href: '/why-us' },
+      { label: pick(UI.nav.aboutUs, lang),  href: '/about' },
+      { label: pick(UI.nav.ourTeams, lang), href: '/our-team' },
+      { label: pick(UI.nav.career, lang),   href: '/careers' },
+    ],
+  },
+  { label: pick(UI.nav.projects, lang),         href: '/projects' },
+  { label: pick(UI.nav.news, lang),             href: '/news' },
+  { label: pick(UI.nav.contact, lang),          href: '/contact' },
+  { label: pick(UI.nav.downloadBrochure, lang), href: '/download-brochure' },
+];
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -15,6 +35,9 @@ const Navbar: React.FC = () => {
   const navRef = useRef<HTMLElement>(null);
   const dropRef = useRef<HTMLDivElement>(null);
   const closeTimeoutRef = useRef<number | null>(null);
+  const { lang } = useLanguage();
+
+  const NAV_LINKS = getNavLinks(lang);
 
   const handleMouseEnter = (label: string) => {
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
@@ -137,7 +160,7 @@ const Navbar: React.FC = () => {
                   onMouseLeave={handleMouseLeave}
                 >
                   <button
-                    id={`nav-${link.label.toLowerCase()}-dropdown`}
+                    id={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}-dropdown`}
                     onClick={(e) => { e.preventDefault(); setOpenDropdown(link.label); }}
                     className={`flex items-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300
                       ${isLight
@@ -157,36 +180,36 @@ const Navbar: React.FC = () => {
                   {/* Dropdown menu */}
                   <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-300
                     ${openDropdown === link.label ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
-                    <div className="w-52 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                    <div className="w-56 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
                       {/* Gold accent bar */}
                       <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg,#1a237e,#C9A84C)' }} />
-                    <div className="py-2">
-                      {link.children!.map((child) => (
-                        <a
-                          key={child.label}
-                          href={getHref(child.href)}
-                          id={`nav-${child.label.toLowerCase().replace(/\s+/g, '-')}`}
-                          onClick={(e) => {
-                            if (child.href.startsWith('#') || child.href.includes('#')) {
-                              e.preventDefault();
-                              const hash = child.href.includes('#') ? '#' + child.href.split('#')[1] : child.href;
-                              if (child.href.startsWith('/') && child.href.includes('#')) {
-                                navigate(child.href);
+                      <div className="py-2">
+                        {link.children!.map((child) => (
+                          <a
+                            key={child.label}
+                            href={getHref(child.href)}
+                            id={`nav-${child.href.replace(/\//g, '').replace(/\s+/g, '-')}`}
+                            onClick={(e) => {
+                              if (child.href.startsWith('#') || child.href.includes('#')) {
+                                e.preventDefault();
+                                const hash = child.href.includes('#') ? '#' + child.href.split('#')[1] : child.href;
+                                if (child.href.startsWith('/') && child.href.includes('#')) {
+                                  navigate(child.href);
+                                } else {
+                                  handleLinkClick(hash);
+                                }
                               } else {
-                                handleLinkClick(hash);
+                                setOpenDropdown(null);
                               }
-                            } else {
-                              setOpenDropdown(null);
-                            }
-                          }}
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-navy-50 hover:text-navy-600 transition-colors duration-200 group/link"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 opacity-0 group-hover/link:opacity-100 transition-opacity duration-200 flex-shrink-0" />
-                          {child.label}
-                        </a>
-                      ))}
+                            }}
+                            className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-navy-50 hover:text-navy-600 transition-colors duration-200 group/link"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 opacity-0 group-hover/link:opacity-100 transition-opacity duration-200 flex-shrink-0" />
+                            {child.label}
+                          </a>
+                        ))}
+                      </div>
                     </div>
-                  </div>
                   </div>
                 </li>
               );
@@ -196,7 +219,7 @@ const Navbar: React.FC = () => {
               <li key={link.label}>
                 <a
                   href={getHref(link.href)}
-                  id={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                  id={`nav-${link.href.replace(/\//g, '').replace(/\s+/g, '-') || 'home'}`}
                   onClick={(e) => {
                     if (link.href.startsWith('#')) {
                       e.preventDefault();
@@ -241,7 +264,7 @@ const Navbar: React.FC = () => {
             id="nav-book-btn"
             className="btn-gold text-xs font-bold px-5 py-2.5 whitespace-nowrap"
           >
-            BOOK NOW →
+            {pick(UI.nav.bookNow, lang)}
           </button>
         </div>
 
@@ -336,7 +359,9 @@ const Navbar: React.FC = () => {
 
             {/* Mobile Language Toggle */}
             <div className="flex items-center justify-between px-4 py-3 mt-1 rounded-xl bg-gray-50 border border-gray-100">
-              <span className="text-sm font-semibold text-gray-600">Language / ভাষা</span>
+              <span className="text-sm font-semibold text-gray-600">
+                {lang === 'BN' ? 'ভাষা / Language' : 'Language / ভাষা'}
+              </span>
               <LanguageToggle />
             </div>
 
@@ -344,7 +369,7 @@ const Navbar: React.FC = () => {
               onClick={() => { navigate('/send-message'); setMenuOpen(false); }}
               className="btn-gold text-center mt-2 w-full"
             >
-              BOOK NOW →
+              {pick(UI.nav.bookNow, lang)}
             </button>
           </div>
         </div>

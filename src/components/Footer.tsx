@@ -15,24 +15,8 @@ import {
 } from 'lucide-react';
 import logoImg from '../assets/image/logo.png';
 import footerBg from '../assets/image/3.jfif';
-
-interface ContactItem {
-  icon: React.ComponentType<any>;
-  title: string;
-  value: string;
-  href?: string;
-  highlight?: boolean;
-}
-
-interface FooterLink {
-  label: string;
-  href: string;
-}
-
-interface FooterColumn {
-  title: string;
-  links: FooterLink[];
-}
+import { useLanguage } from '../context/LanguageContext';
+import { UI, pick } from '../data/translations';
 
 // Inline pure SVGs for social elements to safeguard against third-party library export variances
 const SOCIALS = [
@@ -83,74 +67,75 @@ const SOCIALS = [
   },
 ];
 
-const CONTACT_INFO: ContactItem[] = [
-  {
-    icon: MapPin,
-    title: 'Corporate Headquarters',
-    value: 'Suites 4B & 4C, Level 4, Crystal Heights, Gulshan-2, Dhaka-1212, Bangladesh',
-    href: 'https://maps.google.com/?q=Gulshan+2+Dhaka+Bangladesh'
-  },
-  {
-    icon: BookmarkCheck,
-    title: 'Sales & Hotel Booking Desk',
-    value: '+880 1700-XXXXXX / +880 1800-XXXXXX',
-    href: 'tel:+8801700000000',
-    highlight: true
-  },
-  {
-    icon: MessageSquare,
-    title: 'Official WhatsApp Business',
-    value: '+880 1900-XXXXXX (Chat Only)',
-    href: 'https://wa.me/8801900000000'
-  },
-  {
-    icon: Phone,
-    title: 'Central IP PABX Hotline',
-    value: '+880 9612-SHIFA (74432)',
-    href: 'tel:+880961274432'
-  },
-  {
-    icon: Mail,
-    title: 'General & Investor Relations',
-    value: 'info@shifaproperties.com',
-    href: 'mailto:info@shifaproperties.com'
-  },
-  {
-    icon: FileCheck2,
-    title: 'Media & PR Press Room',
-    value: 'press@shifaproperties.com',
-    href: 'mailto:press@shifaproperties.com'
-  },
-  {
-    icon: Clock,
-    title: 'Corporate Office Hours',
-    value: 'Saturday - Thursday: 09:00 AM - 06:00 PM (GMT+6)',
-  }
-];
-
-const QUICK_LINKS: FooterColumn[] = [
-  {
-    title: 'Our Portfolio',
-    links: [
-      { label: "Cox's Bazar Hotel", href: '/portfolio/coxs-bazar' },
-      { label: 'Kuakata Grand Hotel', href: '/portfolio/kuakata' },
-      { label: 'Padma Riverside Vista', href: '/portfolio/padma-view' },
-      { label: 'Upcoming Mega Projects', href: '/projects' },
-    ]
-  },
-  {
-    title: 'Company',
-    links: [
-      { label: 'About Shifa Group', href: '/about' },
-      { label: 'Board of Directors', href: '/leadership' },
-      { label: 'Investor Relations', href: '/investors' },
-      { label: 'Career Opportunities', href: '/careers' },
-    ]
-  }
-];
-
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const { lang } = useLanguage();
+
+  const CONTACT_INFO = [
+    {
+      icon: MapPin,
+      title: pick(UI.footer.contactTitles.headquarters, lang),
+      value: 'Suites 4B & 4C, Level 4, Crystal Heights, Gulshan-2, Dhaka-1212, Bangladesh',
+      href: 'https://maps.google.com/?q=Gulshan+2+Dhaka+Bangladesh'
+    },
+    {
+      icon: BookmarkCheck,
+      title: pick(UI.footer.contactTitles.salesDesk, lang),
+      value: '+880 1700-XXXXXX / +880 1800-XXXXXX',
+      href: 'tel:+8801700000000',
+      highlight: true
+    },
+    {
+      icon: MessageSquare,
+      title: pick(UI.footer.contactTitles.whatsapp, lang),
+      value: '+880 1900-XXXXXX (Chat Only)',
+      href: 'https://wa.me/8801900000000'
+    },
+    {
+      icon: Phone,
+      title: pick(UI.footer.contactTitles.pabxHotline, lang),
+      value: '+880 9612-SHIFA (74432)',
+      href: 'tel:+880961274432'
+    },
+    {
+      icon: Mail,
+      title: pick(UI.footer.contactTitles.email, lang),
+      value: 'info@shifaproperties.com',
+      href: 'mailto:info@shifaproperties.com'
+    },
+    {
+      icon: FileCheck2,
+      title: pick(UI.footer.contactTitles.pressRoom, lang),
+      value: 'press@shifaproperties.com',
+      href: 'mailto:press@shifaproperties.com'
+    },
+    {
+      icon: Clock,
+      title: pick(UI.footer.contactTitles.officeHours, lang),
+      value: pick(UI.footer.contactTitles.officeHoursValue, lang),
+    }
+  ];
+
+  const QUICK_LINKS = [
+    {
+      title: pick(UI.footer.portfolioCol, lang),
+      links: [
+        { label: pick(UI.footer.quickLinks.coxsBazarHotel, lang), href: '/portfolio/coxs-bazar' },
+        { label: pick(UI.footer.quickLinks.kuakataGrand, lang), href: '/portfolio/kuakata' },
+        { label: pick(UI.footer.quickLinks.padmaRiverside, lang), href: '/portfolio/padma-view' },
+        { label: pick(UI.footer.quickLinks.upcomingProjects, lang), href: '/projects' },
+      ]
+    },
+    {
+      title: pick(UI.footer.companyCol, lang),
+      links: [
+        { label: pick(UI.footer.quickLinks.aboutShifa, lang), href: '/about' },
+        { label: pick(UI.footer.quickLinks.boardOfDirectors, lang), href: '/leadership' },
+        { label: pick(UI.footer.quickLinks.investorRelations, lang), href: '/investors' },
+        { label: pick(UI.footer.quickLinks.careerOpportunities, lang), href: '/careers' },
+      ]
+    }
+  ];
 
   return (
     <footer
@@ -197,11 +182,11 @@ const Footer: React.FC = () => {
             </Link>
 
             <p className="text-gray-400 text-sm leading-relaxed max-w-md">
-              Bangladesh's premier luxury hospitality development and property asset management enterprise. Engineering signature, world-class Hotel architectures across Cox's Bazar, Kuakata, and premium structural landscapes.
+              {pick(UI.footer.taglineBody, lang)}
             </p>
 
             <div className="space-y-3">
-              <p className="text-xs uppercase tracking-wider font-semibold text-slate-400">Connect With Us</p>
+              <p className="text-xs uppercase tracking-wider font-semibold text-slate-400">{pick(UI.footer.connectWith, lang)}</p>
               <div className="flex flex-wrap gap-2.5">
                 {SOCIALS.map((s) => (
                   <a
@@ -233,7 +218,7 @@ const Footer: React.FC = () => {
                   className={`flex gap-4 p-3.5 rounded-xl transition-all duration-200 border ${item.highlight
                     ? 'bg-[#C9A84C]/5 border-[#C9A84C]/30 hover:bg-[#C9A84C]/10'
                     : 'border-transparent hover:bg-slate-900/60 hover:border-slate-800/60'
-                    } ${isLink ? 'group/card cursor-pointer' : ''} ${item.title.includes('Office Hours') ? 'sm:col-span-2' : ''}`}
+                    } ${isLink ? 'group/card cursor-pointer' : ''} ${item.title.includes('Office Hours') || item.title.includes('অফিসের সময়') ? 'sm:col-span-2' : ''}`}
                 >
                   <div className={`flex-shrink-0 w-10 h-10 rounded-xl border flex items-center justify-center transition-transform group-hover/card:scale-105 ${item.highlight
                     ? 'bg-gradient-to-br from-[#C9A84C]/20 to-[#C9A84C]/5 border-[#C9A84C]/40 text-[#C9A84C]'
@@ -284,14 +269,14 @@ const Footer: React.FC = () => {
 
           {/* Compliance Card */}
           <div className="sm:col-span-2 space-y-4">
-            <h4 className="text-white font-bold text-xs tracking-widest uppercase">Corporate Status</h4>
+            <h4 className="text-white font-bold text-xs tracking-widest uppercase">{pick(UI.footer.corporateStatus, lang)}</h4>
             <div className="w-6 h-[2px] mt-2 rounded-full bg-[#C9A84C]" />
             <div className="p-4 rounded-xl bg-gradient-to-br from-slate-950 to-slate-900/60 border border-slate-800/80 space-y-2">
               <div className="flex items-start gap-3">
                 <Building2 className="w-5 h-5 text-[#C9A84C] flex-shrink-0 mt-0.5" />
                 <div className="space-y-1.5">
                   <p className="text-xs text-gray-400 leading-normal">
-                    Registered Joint Stock Company Entity under the Government of the People's Republic of Bangladesh. Regulated under the Companies Act 1994.
+                    {pick(UI.footer.complianceText, lang)}
                   </p>
                   <p className="text-[10px] font-mono text-slate-500 tracking-wider">
                     REG REGISTRATION NO: C-XXXXXX / RJSC BANGALORE TRADING ID: XXXXX
@@ -307,25 +292,25 @@ const Footer: React.FC = () => {
           {/* Left & Middle Links: Enforced single row structure on desktop */}
           <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left w-auto">
             <p className="text-gray-500 text-xs lg:whitespace-nowrap">
-              © {currentYear} Shifa Properties Ltd Group. All real estate and hotel holdings follow dynamic local property ordinances.
+              © {currentYear} Shifa Properties Ltd Group. {pick(UI.footer.copyrightFull, lang)}
             </p>
 
             <span className="hidden md:inline text-gray-300">|</span>
 
             <div className="flex items-center justify-center gap-4 flex-shrink-0">
               <Link to="/privacy" className="text-gray-500 hover:text-slate-800 text-xs transition-colors flex items-center gap-1 whitespace-nowrap">
-                <ShieldAlert className="w-3 h-3" /> Privacy Policy
+                <ShieldAlert className="w-3 h-3" /> {pick(UI.footer.privacyPolicy, lang)}
               </Link>
               <span className="text-gray-300">|</span>
               <Link to="/terms" className="text-gray-500 hover:text-slate-800 text-xs transition-colors flex items-center gap-1 whitespace-nowrap">
-                <FileText className="w-3 h-3" /> Terms of Service
+                <FileText className="w-3 h-3" /> {pick(UI.footer.termsOfService, lang)}
               </Link>
             </div>
           </div>
 
           {/* Right: Software Integrator Seal */}
           <div className="flex items-center gap-2.5 py-2 px-4 bg-slate-950/60 border border-slate-900 rounded-full shadow-inner flex-shrink-0">
-            <span className="text-slate-400 text-[11px] font-medium tracking-wide whitespace-nowrap">Technology Partner</span>
+            <span className="text-slate-400 text-[11px] font-medium tracking-wide whitespace-nowrap">{pick(UI.footer.techPartner, lang)}</span>
             <span className="w-1 h-1 rounded-full bg-slate-800" />
             <a
               href="https://osit.com.bd"

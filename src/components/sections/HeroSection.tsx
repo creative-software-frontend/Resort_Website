@@ -29,14 +29,15 @@ const HeroSection: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [current]);
 
-  const slide: HeroSlide = HERO_SLIDES[current];
+  const slide = UI.heroSlides[current];
+  const slideData = HERO_SLIDES[current]; // to keep image and links intact
 
   return (
     <section id="hero" className="relative w-full h-screen min-h-[600px] overflow-hidden">
       {/* Background images */}
       <AnimatePresence initial={false}>
         <motion.div
-          key={current}
+          key={`${current}-${lang}`}
           className="absolute inset-0"
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -45,8 +46,8 @@ const HeroSection: React.FC = () => {
           style={{ zIndex: 1 }}
         >
           <img
-            src={slide.image}
-            alt={slide.title}
+            src={slideData.image}
+            alt={pick(slide.title, lang)}
             className="w-full h-full object-cover"
             loading="eager"
           />
@@ -61,7 +62,7 @@ const HeroSection: React.FC = () => {
       <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
         <AnimatePresence mode="wait">
           <motion.div 
-            key={current}
+            key={`${current}-${lang}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
@@ -75,7 +76,7 @@ const HeroSection: React.FC = () => {
               transition={{ delay: 0.2 }}
               className="gs-badge mb-6 text-sm"
             >
-              ✦ {slide.badge}
+              ✦ {pick(slide.badge, lang)}
             </motion.span>
 
             {/* Title */}
@@ -86,7 +87,7 @@ const HeroSection: React.FC = () => {
               className="text-white font-black mb-4 max-w-4xl mx-auto"
               style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}
             >
-              {slide.title}
+              {pick(slide.title, lang)}
             </motion.h1>
 
             {/* Subtitle */}
@@ -96,7 +97,7 @@ const HeroSection: React.FC = () => {
               transition={{ delay: 0.6 }}
               className="text-white/80 text-base md:text-lg max-w-2xl mx-auto mb-8"
             >
-              {slide.subtitle}
+              {pick(slide.subtitle, lang)}
             </motion.p>
 
             {/* CTA buttons */}
@@ -106,21 +107,21 @@ const HeroSection: React.FC = () => {
               transition={{ delay: 0.8 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <a href={slide.ctaLink}
+              <a href={slideData.ctaLink}
                  onClick={(e) => {
-                   if (slide.ctaLink.startsWith('#')) {
+                   if (slideData.ctaLink.startsWith('#')) {
                      e.preventDefault();
-                     document.querySelector(slide.ctaLink)?.scrollIntoView({ behavior: 'smooth' });
+                     document.querySelector(slideData.ctaLink)?.scrollIntoView({ behavior: 'smooth' });
                    }
                  }}
-                 id={`hero-cta-${slide.id}`}
+                 id={`hero-cta-${slideData.id}`}
                  className="btn-gold font-bold text-base px-8 py-4">
-                {slide.cta}
+                {pick(slide.cta, lang)}
               </a>
               <a href="#about"
                  onClick={(e) => { e.preventDefault(); document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' }); }}
                  className="btn-outline text-white border-white/60 hover:bg-white/20 hover:text-white font-semibold">
-                Who We Are
+                {pick(UI.hero.whoWeAre, lang)}
               </a>
             </motion.div>
           </motion.div>

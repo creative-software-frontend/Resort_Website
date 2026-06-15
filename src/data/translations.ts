@@ -12,6 +12,76 @@ export const UI = {
     scrollDown: { en: 'Scroll Down', bn: 'নিচে স্ক্রোল করুন' },
     whoWeAre: { en: 'Who We Are', bn: 'আমরা কারা' },
   },
+  heroSlides: [
+    {
+      badge: { en: 'Shifa Properties Ltd Group', bn: 'শিফা প্রপার্টিজ লিমিটেড গ্রুপ' },
+      title: { en: 'Welcome to Our Green Kingdom', bn: 'আমাদের সবুজ রাজ্যে স্বাগতম' },
+      subtitle: { en: 'Experience world-class luxury Hotels and investment opportunities along the breathtaking Padma riverside.', bn: 'পদ্মা নদীর ধারে বিশ্বমানের বিলাসবহুল হোটেল এবং বিনিয়োগের সুযোগ অনুভব করুন।' },
+      cta: { en: 'Explore Projects', bn: 'প্রকল্প অন্বেষণ করুন' }
+    },
+    {
+      badge: { en: 'Bay Sands', bn: 'বে স্যান্ডস' },
+      title: { en: 'Lifetime Halal Income & Facilities', bn: 'আজীবন হালাল আয় ও সুবিধা' },
+      subtitle: { en: 'Own a 5-star hotel suite and enjoy lifelong halal returns and world-class amenities.', bn: 'একটি ৫-তারা হোটেল স্যুটের মালিক হোন এবং আজীবন হালাল আয় ও বিশ্বমানের সুযোগ-সুবিধা উপভোগ করুন।' },
+      cta: { en: 'Learn More', bn: 'আরও জানুন' }
+    },
+    {
+      badge: { en: 'Padma Grand Hotel', bn: 'পদ্মা গ্র্যান্ড হোটেল' },
+      title: { en: 'A Natural Paradise by the Padma', bn: 'পদ্মার তীরে একটি প্রাকৃতিক স্বর্গ' },
+      subtitle: { en: 'Situated near the Jazira point of the Padma bridge — recreation and relaxation away from city life.', bn: 'পদ্মা সেতুর জাজিরা পয়েন্টের কাছে অবস্থিত — শহরের জীবন থেকে দূরে বিনোদন এবং বিশ্রাম।' },
+      cta: { en: 'Book Now', bn: 'এখনই বুক করুন' }
+    }
+  ],
+  pageHero: {
+    about: {
+      title: { en: 'ABOUT Shifa Properties Ltd', bn: 'শিফা প্রপার্টিজ লিমিটেড সম্পর্কে' },
+      subtitle: { en: "Bangladesh's leading hotel development & investment company", bn: 'বাংলাদেশের শীর্ষ হোটেল উন্নয়ন ও বিনিয়োগ কোম্পানি' },
+    },
+    contact: {
+      title: { en: 'CONTACT US', bn: 'যোগাযোগ করুন' },
+      subtitle: { en: 'Get in touch with Shifa Properties Ltd Group', bn: 'শিফা প্রপার্টিজ লিমিটেড গ্রুপের সাথে যোগাযোগ করুন' },
+    },
+    news: {
+      label: { en: 'Media & Updates', bn: 'মিডিয়া এবং আপডেট' },
+      title: { en: 'Shifa Properties Ltd News Room', bn: 'শিফা প্রপার্টিজ লিমিটেড নিউজ রুম' },
+      subtitle: { en: 'The latest news, partnership announcements, project milestones, and corporate updates from Shifa Properties Ltd Group.', bn: 'শিফা প্রপার্টিজ লিমিটেড গ্রুপের সর্বশেষ সংবাদ, অংশীদারি ঘোষণা, প্রকল্পের মাইলফলক এবং কর্পোরেট আপডেট।' },
+    },
+    team: {
+      title: { en: 'OUR TEAM', bn: 'আমাদের দল' },
+      subtitle: { en: 'Meet the leaders behind Shifa Properties Ltd Group', bn: 'শিফা প্রপার্টিজ লিমিটেড গ্রুপের নেতৃত্বের সাথে পরিচিত হোন' },
+    },
+  },
+  team: {
+    label: { en: 'Leadership', bn: 'নেতৃত্ব' },
+    title: { en: 'Our Teams', bn: 'আমাদের দল' },
+    subtitle: { en: "Meet the dedicated professionals driving Shifa Properties Ltd Group's vision for world-class hospitality and investment excellence.", bn: 'শিফা প্রপার্টিজ লিমিটেড গ্রুপের বিশ্বমানের আতিথেয়তা ও বিনিয়োগ শ্রেষ্ঠত্বের লক্ষ্যে নিবেদিত পেশাদারদের সাথে পরিচিত হোন।' },
+    members: [
+      {
+        role: { en: 'Managing Director & CEO', bn: 'ব্যবস্থাপনা পরিচালক ও সিইও' },
+        description: { en: "Visionary leader with over 15 years of experience in real estate and hotel development, driving Shifa Properties Ltd Group to become Bangladesh's premier investment company.", bn: 'রিয়েল এস্টেট ও হোটেল উন্নয়নে ১৫ বছরেরও বেশি অভিজ্ঞতাসম্পন্ন দূরদর্শী নেতা, যিনি শিফা প্রপার্টিজ লিমিটেড গ্রুপকে বাংলাদেশের শীর্ষ বিনিয়োগ প্রতিষ্ঠানে পরিণত করছেন।' }
+      },
+      {
+        role: { en: 'Chairman & Coordinator', bn: 'চেয়ারম্যান ও সমন্বয়কারী' },
+        description: { en: 'Strategic chairman overseeing all major partnerships, including the landmark Best Western Plus hotel development collaboration.', bn: 'কৌশলগত চেয়ারম্যান যিনি বেস্ট ওয়েস্টার্ন প্লাস হোটেল উন্নয়ন সহযোগিতাসহ সকল প্রধান অংশীদারিত্ব তদারকি করেন।' }
+      },
+      {
+        role: { en: 'Principal Advisor', bn: 'প্রধান উপদেষ্টা' },
+        description: { en: 'Expert advisor specializing in investment strategy, legal compliance, and ensuring the highest standards of client service.', bn: 'বিনিয়োগ কৌশল, আইনি সম্মতি ও সর্বোচ্চ মানের ক্লায়েন্ট সেবা নিশ্চিতে বিশেষজ্ঞ উপদেষ্টা।' }
+      },
+      {
+        role: { en: 'Senior Investment Advisor', bn: 'জ্যেষ্ঠ বিনিয়োগ উপদেষ্টা' },
+        description: { en: 'Leading investor relations and share recuperation programs, building trust with thousands of Bangladeshi investors.', bn: 'বিনিয়োগকারী সম্পর্ক ও শেয়ার পুনরুদ্ধার কার্যক্রম পরিচালনা করে হাজার হাজার বাংলাদেশি বিনিয়োগকারীর বিশ্বাস অর্জন করছেন।' }
+      },
+      {
+        role: { en: 'Business Development Manager', bn: 'ব্যবসায়িক উন্নয়ন ব্যবস্থাপক' },
+        description: { en: 'Driving business partnerships and event management, connecting Shifa Properties Ltd with national and international stakeholders.', bn: 'ব্যবসায়িক অংশীদারিত্ব ও ইভেন্ট ম্যানেজমেন্ট পরিচালনা করে শিফা প্রপার্টিজ লিমিটেডকে জাতীয় ও আন্তর্জাতিক স্টেকহোল্ডারদের সাথে সংযুক্ত করছেন।' }
+      },
+      {
+        role: { en: 'Strategic Coordinator', bn: 'কৌশলগত সমন্বয়কারী' },
+        description: { en: 'Ensuring seamless operations, hotel registration processes, and stakeholder coordination across all Shifa Properties Ltd projects.', bn: 'সকল শিফা প্রপার্টিজ লিমিটেড প্রকল্পে নিরবচ্ছিন্ন কার্যক্রম, হোটেল নিবন্ধন প্রক্রিয়া ও স্টেকহোল্ডার সমন্বয় নিশ্চিত করছেন।' }
+      },
+    ],
+  },
 
   /* ─── WHY US PAGE ────────────────────────────────────────────────── */
   whyUs: {
@@ -204,6 +274,36 @@ export const UI = {
     hotline: { en: 'Hotline', bn: 'হটলাইন' },
     copyright: { en: '© 2025 Shifa Properties Ltd Group. All rights reserved.', bn: '© ২০২৫ শিফা প্রপার্টিজ লিমিটেড গ্রুপ। সমস্ত অধিকার সংরক্ষিত।' },
     followUs: { en: 'Follow Us', bn: 'আমাদের অনুসরণ করুন' },
+    connectWith: { en: 'Connect With Us', bn: 'আমাদের সাথে যুক্ত হোন' },
+    taglineBody: { en: "Bangladesh's premier luxury hospitality development and property asset management enterprise. Engineering signature, world-class Hotel architectures across Cox's Bazar, Kuakata, and premium structural landscapes.", bn: "বাংলাদেশের প্রিমিয়াম বিলাসবহুল আতিথেয়তা উন্নয়ন ও সম্পত্তি ব্যবস্থাপনা প্রতিষ্ঠান। কক্সবাজার, কুয়াকাটা এবং প্রিমিয়াম কাঠামোগত ল্যান্ডস্কেপ জুড়ে বিশ্বমানের হোটেল স্থাপত্য নির্মাণ করছে।" },
+    portfolioCol: { en: 'Our Portfolio', bn: 'আমাদের পোর্টফোলিও' },
+    companyCol: { en: 'Company', bn: 'কোম্পানি' },
+    corporateStatus: { en: 'Corporate Status', bn: 'কর্পোরেট মর্যাদা' },
+    complianceText: { en: "Registered Joint Stock Company Entity under the Government of the People's Republic of Bangladesh. Regulated under the Companies Act 1994.", bn: 'গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের অধীনে নিবন্ধিত যৌথমূলধনী কোম্পানি সত্তা। কোম্পানি আইন ১৯৯৪ অনুযায়ী নিয়ন্ত্রিত।' },
+    privacyPolicy: { en: 'Privacy Policy', bn: 'গোপনীয়তা নীতি' },
+    termsOfService: { en: 'Terms of Service', bn: 'সেবার শর্তাবলী' },
+    techPartner: { en: 'Technology Partner', bn: 'প্রযুক্তি অংশীদার' },
+    copyrightFull: { en: 'All real estate and hotel holdings follow dynamic local property ordinances.', bn: 'সকল রিয়েল এস্টেট ও হোটেল সম্পদ স্থানীয় সম্পত্তি অধ্যাদেশ অনুসরণ করে।' },
+    contactTitles: {
+      headquarters: { en: 'Corporate Headquarters', bn: 'কর্পোরেট সদর দফতর' },
+      salesDesk: { en: 'Sales & Hotel Booking Desk', bn: 'বিক্রয় ও হোটেল বুকিং ডেস্ক' },
+      whatsapp: { en: 'Official WhatsApp Business', bn: 'অফিসিয়াল হোয়াটসঅ্যাপ ব্যবসা' },
+      pabxHotline: { en: 'Central IP PABX Hotline', bn: 'কেন্দ্রীয় আইপি পিএবিএক্স হটলাইন' },
+      email: { en: 'General & Investor Relations', bn: 'সাধারণ ও বিনিয়োগকারী সম্পর্ক' },
+      pressRoom: { en: 'Media & PR Press Room', bn: 'মিডিয়া ও পিআর প্রেস রুম' },
+      officeHours: { en: 'Corporate Office Hours', bn: 'কর্পোরেট অফিসের সময়' },
+      officeHoursValue: { en: 'Saturday - Thursday: 09:00 AM - 06:00 PM (GMT+6)', bn: 'শনিবার - বৃহস্পতিবার: সকাল ৯:০০ - বিকেল ৬:০০ (জিএমটি+৬)' },
+    },
+    quickLinks: {
+      coxsBazarHotel: { en: "Cox's Bazar Hotel", bn: 'কক্সবাজার হোটেল' },
+      kuakataGrand: { en: 'Kuakata Grand Hotel', bn: 'কুয়াকাটা গ্র্যান্ড হোটেল' },
+      padmaRiverside: { en: 'Padma Riverside Vista', bn: 'পদ্মা রিভারসাইড ভিস্তা' },
+      upcomingProjects: { en: 'Upcoming Mega Projects', bn: 'আসন্ন মেগা প্রকল্প' },
+      aboutShifa: { en: 'About Shifa Group', bn: 'শিফা গ্রুপ সম্পর্কে' },
+      boardOfDirectors: { en: 'Board of Directors', bn: 'পরিচালনা পর্ষদ' },
+      investorRelations: { en: 'Investor Relations', bn: 'বিনিয়োগকারী সম্পর্ক' },
+      careerOpportunities: { en: 'Career Opportunities', bn: 'ক্যারিয়ারের সুযোগ' },
+    },
   },
 
   /* ─── NAV LABELS ────────────────────────────────────────────────── */

@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { NEWS_ARTICLES } from '../data/landingData';
 import PageTransition from '../components/PageTransition';
+import { useLanguage } from '../context/LanguageContext';
+import { UI, pick } from '../data/translations';
 
 const CATEGORIES = ['All', ...Array.from(new Set(NEWS_ARTICLES.map((a) => a.category)))];
 
 const NewsPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
+  const { lang } = useLanguage();
 
   const filtered =
     activeCategory === 'All'
@@ -19,13 +22,13 @@ const NewsPage: React.FC = () => {
 
           {/* Page heading */}
           <div className="text-center mb-14">
-            <span className="section-label">Media & Updates</span>
+            <span className="section-label">{pick(UI.pageHero.news.label, lang)}</span>
             <h1 className="section-title" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Shifa Properties Ltd News Room
+              {pick(UI.pageHero.news.title, lang)}
             </h1>
             <div className="gold-divider mx-auto mt-4" />
             <p className="section-subtitle mx-auto mt-4">
-              The latest news, partnership announcements, project milestones, and corporate updates from Shifa Properties Ltd Group.
+              {pick(UI.pageHero.news.subtitle, lang)}
             </p>
           </div>
 
@@ -42,13 +45,13 @@ const NewsPage: React.FC = () => {
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                 style={activeCategory === cat ? { background: 'linear-gradient(135deg,#1a237e,#0288D1)' } : {}}
               >
-                {cat}
+                {cat === 'All' ? (lang === 'EN' ? 'All' : 'সব') : cat}
               </button>
             ))}
           </div>
 
           {/* Featured article (first) */}
-          {activeCategory === 'All' && (
+          {activeCategory === 'All' && filtered.length > 0 && (
             <a
               href={filtered[0].href}
               target="_blank"
@@ -68,7 +71,7 @@ const NewsPage: React.FC = () => {
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1.5 rounded-full text-xs font-black tracking-wider uppercase text-white"
                       style={{ background: 'linear-gradient(135deg,#1a237e,#0288D1)' }}>
-                      ✦ Featured
+                      ✦ {lang === 'EN' ? 'Featured' : 'আলোচিত'}
                     </span>
                   </div>
                 </div>
@@ -92,7 +95,7 @@ const NewsPage: React.FC = () => {
                   </div>
                   <span className="inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 group-hover:translate-x-1"
                     style={{ color: '#C9A84C' }}>
-                    Read Full Article →
+                    {lang === 'EN' ? 'Read Full Article →' : 'সম্পূর্ণ নিবন্ধটি পড়ুন →'}
                   </span>
                 </div>
               </div>
@@ -145,7 +148,7 @@ const NewsPage: React.FC = () => {
                   </p>
                   <div className="mt-4 flex items-center gap-1 text-xs font-semibold transition-all duration-300 group-hover:translate-x-1"
                     style={{ color: '#C9A84C' }}>
-                    Read More →
+                    {pick(UI.news.readMore, lang)}
                   </div>
                 </div>
               </a>
@@ -155,7 +158,9 @@ const NewsPage: React.FC = () => {
           {/* Empty state */}
           {filtered.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-gray-400 text-lg">No articles found in this category.</p>
+              <p className="text-gray-400 text-lg">
+                {lang === 'BN' ? 'এই বিভাগে কোনো নিবন্ধ পাওয়া যায়নি।' : 'No articles found in this category.'}
+              </p>
             </div>
           )}
         </div>

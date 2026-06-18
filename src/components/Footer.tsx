@@ -13,7 +13,7 @@ import {
   BookmarkCheck,
   FileCheck2
 } from 'lucide-react';
-import logoImg from '../assets/image/logo.png';
+import logoImg from '../assets/image/logo.jpeg';
 import footerBg from '../assets/image/3.jfif';
 import { useLanguage } from '../context/LanguageContext';
 import { UI, pick } from '../data/translations';
@@ -140,20 +140,17 @@ const Footer: React.FC = () => {
   return (
     <footer
       id="contact"
-      className="relative overflow-hidden text-gray-300 border-t border-slate-900 bg-[#060614]"
+      className="relative overflow-hidden text-slate-100 border-t border-slate-900 bg-[#060614]"
     >
-      {/* BACKGROUND IMAGE LAYER */}
+      {/* BACKGROUND IMAGE LAYER - PURE AND UNFILTERED REVEAL */}
       <div className="absolute inset-0 pointer-events-none select-none z-0">
         <img
           src={footerBg}
           alt="Shifa Properties Ltd Group Hotel aerial view"
           className="w-full h-full object-cover object-center scale-105 motion-safe:animate-[pulse_8s_ease-in-out_infinite]"
-          style={{
-            filter: 'brightness(0.22) saturate(0.55)',
-            opacity: 0.22
-          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060614]/50 via-[#060614]/90 to-[#060614]" />
+        {/* Pure single smooth gradient overlay mask to transition beautifully into the page structure */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#060614]/40 to-[#060614]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
@@ -164,11 +161,11 @@ const Footer: React.FC = () => {
           {/* Brand Profile Block */}
           <div className="lg:col-span-4 space-y-6">
             <Link to="/" className="inline-flex items-center gap-4 group">
-              <div className="relative p-1.5 bg-white rounded-2xl border border-[#C9A84C]/40 shadow-[0_0_20px_rgba(201,168,76,0.1)] transition-all duration-300 group-hover:border-[#C9A84C] group-hover:shadow-[0_0_25px_rgba(201,168,76,0.25)]">
+              <div className="relative rounded-2xl border border-[#C9A84C]/40 shadow-[0_0_20px_rgba(201,168,76,0.1)] transition-all duration-300 group-hover:border-[#C9A84C] group-hover:shadow-[0_0_25px_rgba(201,168,76,0.25)]">
                 <img
                   src={logoImg}
                   alt="Shifa Properties Ltd Group Logo"
-                  className="w-16 h-16 object-contain"
+                  className="w-16 h-16 object-contain rounded-2xl"
                 />
               </div>
               <div>
@@ -181,12 +178,12 @@ const Footer: React.FC = () => {
               </div>
             </Link>
 
-            <p className="text-gray-400 text-sm leading-relaxed max-w-md">
+            <p className="text-slate-100 text-sm leading-relaxed max-w-md backdrop-blur-[2px] font-medium">
               {pick(UI.footer.taglineBody, lang)}
             </p>
 
             <div className="space-y-3">
-              <p className="text-xs uppercase tracking-wider font-semibold text-slate-400">{pick(UI.footer.connectWith, lang)}</p>
+              <p className="text-xs uppercase tracking-wider font-semibold text-slate-200">{pick(UI.footer.connectWith, lang)}</p>
               <div className="flex flex-wrap gap-2.5">
                 {SOCIALS.map((s) => (
                   <a
@@ -195,7 +192,7 @@ const Footer: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className={`w-9 h-9 rounded-xl flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 border border-slate-800 bg-slate-900/40 backdrop-blur-sm shadow-inner ${s.color}`}
+                    className={`w-9 h-9 rounded-xl flex items-center justify-center text-slate-200 hover:text-white transition-all duration-300 border border-slate-700 bg-slate-900/60 backdrop-blur-sm shadow-inner ${s.color}`}
                   >
                     {s.icon}
                   </a>
@@ -205,7 +202,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Expanded Grid System Matrix */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-950/40 p-5 rounded-2xl border border-slate-900/80 backdrop-blur-md">
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-950/60 p-5 rounded-2xl border border-slate-800/40 backdrop-blur-md">
             {CONTACT_INFO.map((item, idx) => {
               const IconComponent = item.icon;
               const isLink = !!item.href;
@@ -216,21 +213,21 @@ const Footer: React.FC = () => {
                   key={idx}
                   {...(isLink ? { href: item.href, target: item.href?.startsWith('http') ? '_blank' : undefined, rel: 'noopener noreferrer' } : {})}
                   className={`flex gap-4 p-3.5 rounded-xl transition-all duration-200 border ${item.highlight
-                    ? 'bg-[#C9A84C]/5 border-[#C9A84C]/30 hover:bg-[#C9A84C]/10'
-                    : 'border-transparent hover:bg-slate-900/60 hover:border-slate-800/60'
+                    ? 'bg-[#C9A84C]/10 border-[#C9A84C]/40 hover:bg-[#C9A84C]/20'
+                    : 'border-transparent hover:bg-slate-900/80 hover:border-slate-700/50'
                     } ${isLink ? 'group/card cursor-pointer' : ''} ${item.title.includes('Office Hours') || item.title.includes('অফিসের সময়') ? 'sm:col-span-2' : ''}`}
                 >
                   <div className={`flex-shrink-0 w-10 h-10 rounded-xl border flex items-center justify-center transition-transform group-hover/card:scale-105 ${item.highlight
-                    ? 'bg-gradient-to-br from-[#C9A84C]/20 to-[#C9A84C]/5 border-[#C9A84C]/40 text-[#C9A84C]'
-                    : 'bg-gradient-to-br from-slate-900 to-slate-950 border-slate-800 text-[#C9A84C]'
+                    ? 'bg-gradient-to-br from-[#C9A84C]/30 to-[#C9A84C]/10 border-[#C9A84C]/50 text-[#C9A84C]'
+                    : 'bg-gradient-to-br from-slate-900 to-slate-950 border-slate-700 text-[#C9A84C]'
                     }`}>
                     <IconComponent className="w-5 h-5" />
                   </div>
                   <div className="space-y-0.5">
-                    <h5 className="text-[11px] font-bold uppercase tracking-wider text-slate-400">{item.title}</h5>
-                    <p className={`text-xs leading-normal font-medium ${item.highlight
-                      ? 'text-white font-semibold flex items-center gap-1'
-                      : isLink ? 'text-gray-300 group-hover/card:text-white transition-colors flex items-center gap-1' : 'text-gray-400'
+                    <h5 className="text-[11px] font-bold uppercase tracking-wider text-slate-200">{item.title}</h5>
+                    <p className={`text-xs leading-normal font-semibold ${item.highlight
+                      ? 'text-white font-bold flex items-center gap-1'
+                      : isLink ? 'text-slate-100 group-hover/card:text-white transition-colors flex items-center gap-1' : 'text-slate-200'
                       }`}>
                       {item.value}
                       {isLink && <ArrowUpRight className="w-3 h-3 opacity-0 group-hover/card:opacity-100 transition-all text-[#C9A84C]" />}
@@ -256,7 +253,7 @@ const Footer: React.FC = () => {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-gray-400 text-sm hover:text-white transition-colors duration-200 flex items-center gap-2 group/item"
+                      className="text-slate-200 text-sm hover:text-white transition-colors duration-200 flex items-center gap-2 group/item font-medium"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] opacity-0 -ml-2 group-hover/item:opacity-100 group-hover/item:ml-0 transition-all duration-200" />
                       {link.label}
@@ -271,14 +268,14 @@ const Footer: React.FC = () => {
           <div className="sm:col-span-2 space-y-4">
             <h4 className="text-white font-bold text-xs tracking-widest uppercase">{pick(UI.footer.corporateStatus, lang)}</h4>
             <div className="w-6 h-[2px] mt-2 rounded-full bg-[#C9A84C]" />
-            <div className="p-4 rounded-xl bg-gradient-to-br from-slate-950 to-slate-900/60 border border-slate-800/80 space-y-2">
+            <div className="p-4 rounded-xl bg-gradient-to-br from-slate-950/80 to-slate-900/80 border border-slate-800/80 space-y-2 backdrop-blur-sm">
               <div className="flex items-start gap-3">
                 <Building2 className="w-5 h-5 text-[#C9A84C] flex-shrink-0 mt-0.5" />
                 <div className="space-y-1.5">
-                  <p className="text-xs text-gray-400 leading-normal">
+                  <p className="text-xs text-slate-100 leading-normal font-medium">
                     {pick(UI.footer.complianceText, lang)}
                   </p>
-                  <p className="text-[10px] font-mono text-slate-500 tracking-wider">
+                  <p className="text-[10px] font-mono text-slate-300 tracking-wider font-semibold">
                     REG REGISTRATION NO: C-XXXXXX / RJSC BANGALORE TRADING ID: XXXXX
                   </p>
                 </div>
@@ -286,32 +283,31 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* BOTTOM COMPLIANCE LAYER: Fixed alignment to force a clean single row */}
-        <div className="pt-8 flex flex-col lg:flex-row items-center justify-between gap-6 w-full border-t border-gray-100">
 
-          {/* Left & Middle Links: Enforced single row structure on desktop */}
+        {/* BOTTOM COMPLIANCE LAYER */}
+        <div className="pt-8 flex flex-col lg:flex-row items-center justify-between gap-6 w-full border-t border-slate-800/60">
           <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left w-auto">
-            <p className="text-gray-500 text-xs lg:whitespace-nowrap">
+            <p className="text-slate-300 text-xs lg:whitespace-nowrap font-medium">
               © {currentYear} Shifa Properties Ltd Group. {pick(UI.footer.copyrightFull, lang)}
             </p>
 
-            <span className="hidden md:inline text-gray-300">|</span>
+            <span className="hidden md:inline text-slate-700">|</span>
 
             <div className="flex items-center justify-center gap-4 flex-shrink-0">
-              <Link to="/privacy" className="text-gray-500 hover:text-slate-800 text-xs transition-colors flex items-center gap-1 whitespace-nowrap">
-                <ShieldAlert className="w-3 h-3" /> {pick(UI.footer.privacyPolicy, lang)}
+              <Link to="/privacy" className="text-slate-300 hover:text-white text-xs transition-colors flex items-center gap-1 whitespace-nowrap font-medium">
+                <ShieldAlert className="w-3 h-3 text-[#C9A84C]" /> {pick(UI.footer.privacyPolicy, lang)}
               </Link>
-              <span className="text-gray-300">|</span>
-              <Link to="/terms" className="text-gray-500 hover:text-slate-800 text-xs transition-colors flex items-center gap-1 whitespace-nowrap">
-                <FileText className="w-3 h-3" /> {pick(UI.footer.termsOfService, lang)}
+              <span className="text-slate-700">|</span>
+              <Link to="/terms" className="text-slate-300 hover:text-white text-xs transition-colors flex items-center gap-1 whitespace-nowrap font-medium">
+                <FileText className="w-3 h-3 text-[#C9A84C]" /> {pick(UI.footer.termsOfService, lang)}
               </Link>
             </div>
           </div>
 
-          {/* Right: Software Integrator Seal */}
-          <div className="flex items-center gap-2.5 py-2 px-4 bg-slate-950/60 border border-slate-900 rounded-full shadow-inner flex-shrink-0">
-            <span className="text-slate-400 text-[11px] font-medium tracking-wide whitespace-nowrap">{pick(UI.footer.techPartner, lang)}</span>
-            <span className="w-1 h-1 rounded-full bg-slate-800" />
+          {/* Software Integrator Seal */}
+          <div className="flex items-center gap-2.5 py-2 px-4 bg-slate-950/80 border border-slate-800 rounded-full shadow-inner flex-shrink-0 backdrop-blur-sm">
+            <span className="text-slate-200 text-[11px] font-semibold tracking-wide whitespace-nowrap">{pick(UI.footer.techPartner, lang)}</span>
+            <span className="w-1 h-1 rounded-full bg-slate-700" />
             <a
               href="https://osit.com.bd"
               target="_blank"

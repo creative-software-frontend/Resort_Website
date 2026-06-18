@@ -19,12 +19,6 @@ const OFFICES = [
   { name: 'Corporate Head Office', address: '47, Nassa Heights, Gulshan South Avenue, Gulshan-1, Dhaka.', email: 'sales@shifapropertiesltd.com.bd', cell: '01877715333', hotline: '+8809610066666', mapUrl: 'https://maps.google.com/?q=Shifa+Properties+Ltd+Group+Gulshan+Dhaka', mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.546!2d90.4125!3d23.7937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQ3JzM3LjMiTiA5MMKwMjQnNDUuMCJF!5e0!3m2!1sen!2sbd!4v1' },
   { name: 'Mohakhali DOHS Office', address: 'Plot-39B (1st Floor), Road-29, New DOHS Mohakhali, Dhaka', email: 'sales@shifapropertiesltd.com.bd', cell: '01222845560', hotline: '+8809610066666', mapUrl: 'https://maps.google.com/?q=Mohakhali+DOHS+Dhaka', mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.2!2d90.4005!3d23.7966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQ3JzQ3LjciTiA5MMKwMjQnMS44IkU!5e0!3m2!1sen!2sbd!4v1' },
   { name: 'Uttara Office', address: '2nd & 3rd Floor, House 18 & 20, Road 6/C, ACM & MF Tower, Dhaka 1230', email: 'sales@shifapropertiesltd.com.bd', cell: '01894944666', hotline: '+8809610066666', mapUrl: 'https://maps.google.com/?q=Shifa+Properties+Ltd+Group+Uttara+Dhaka', mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.5!2d90.3997!3d23.8759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDUyJzMyLjkiTiA5MMKwMjMnNTguNiJF!5e0!3m2!1sen!2sbd!4v1' },
-  { name: 'Chittagong Khulshi Office', address: 'Tahrub Tower, South Khulshi, Chittagong.', email: 'sales@shifapropertiesltd.com.bd', cell: '01894944683', hotline: '+8809610066666', mapUrl: 'https://maps.google.com/?q=Khulshi+Chittagong', mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.7!2d91.8065!3d22.3718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDIyJzE4LjUiTiA5McKwNDgnMjMuNCJF!5e0!3m2!1sen!2sbd!4v1' },
-  { name: 'Dubai Office', address: 'Bur Juman Business Tower, Sheikh Zayed St, Dubai', email: 'info@shifapropertiesltd.com.bd', cell: '88029881929', hotline: '+8809610066666', mapUrl: 'https://maps.google.com/?q=Bur+Juman+Business+Tower+Dubai', mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.2!2d55.3047!3d25.2527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDE1JzA5LjciTiA5NcKwMTgnMTYuOSJF!5e0!3m2!1sen!2sae!4v1' },
-  { name: 'Dhanmondi Office', address: 'Khan ABC Tradeplex, House#37 Road#02, Dhaka 1209', email: 'sales@shifapropertiesltd.com.bd', cell: '01990786666', hotline: '+8809610066666', mapUrl: 'https://maps.google.com/?q=Dhanmondi+Dhaka', mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.7!2d90.3738!3d23.7461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQ0JzQ4LjAiTiA5MMKwMjInMjWuNiJF!5e0!3m2!1sen!2sbd!4v1' },
-  { name: 'OCDL Office', address: 'Nefi Tower 53, Gulshan South Avenue, Gulshan-1, Dhaka-1212.', email: 'info@ocdlbd.com', cell: '01701216500', hotline: '+8809610066666', mapUrl: 'https://maps.google.com/?q=Gulshan+South+Avenue+Dhaka', mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.5!2d90.4145!3d23.7932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQ3JzM1LjUiTiA5MMKwMjQnNTIuMiJF!5e0!3m2!1sen!2sbd!4v1' },
-  { name: 'Chittagong Agrabad Office', address: '102/3, World Trade Center, Agrabad C/A, Agrabad-4100, Chittagong.', email: 'sales@shifapropertiesltd.com.bd', cell: '01896006190', hotline: '+8809610066666', mapUrl: 'https://maps.google.com/?q=World+Trade+Center+Agrabad+Chittagong', mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.2!2d91.8215!3d22.3297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDE5JzQ3LjAiTiA5McKwNDknMTcuNCJF!5e0!3m2!1sen!2sbd!4v1' },
-  { name: 'USA Office', address: '37-39, 77th Street, 3rd Floor, Jackson Heights, NY 11372, USA.', email: 'sales@shifapropertiesltd.com.bd', cell: '+16466680041', hotline: '+16466680041', mapUrl: 'https://maps.google.com/?q=Jackson+Heights+New+York', mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.8!2d-73.8836!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjIiTiA3M8KwNTMnMDAuOSJX!5e0!3m2!1sen!2sus!4v1' },
 ];
 
 const INTEREST_VALUES = [
@@ -63,7 +57,7 @@ const ContactSection: React.FC = () => {
       <div className="relative overflow-hidden" style={{ background: '#e8f4fd' }}>
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
           <span className="font-black tracking-tighter leading-none whitespace-nowrap"
-            style={{ fontSize: 'clamp(80px, 18vw, 220px)', color: 'rgba(26,35,126,0.08)', fontFamily: 'Playfair Display, serif' }}>
+            style={{ fontSize: 'clamp(80px, 18vw, 220px)', color: 'rgba(0,0,0,0.05)', fontFamily: 'Playfair Display, serif' }}>
             {pick(c.watermark, lang)}
           </span>
         </div>
@@ -75,7 +69,7 @@ const ContactSection: React.FC = () => {
           {/* Expanded max-w-2xl to max-w-4xl to prevent layout breaks on long text blocks */}
           <motion.div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 md:p-10 w-full max-w-4xl border border-sky-100"
             variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}>
-            <h2 className="text-center font-black text-2xl md:text-3xl mb-1" style={{ color: '#1a237e', fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-center font-black text-2xl md:text-3xl mb-1 text-black" style={{ fontFamily: 'Playfair Display, serif' }}>
               {pick(c.title, lang)}
             </h2>
             <p className="text-center text-gray-500 text-sm mb-8">{pick(c.subtitle, lang)}</p>
@@ -90,11 +84,11 @@ const ContactSection: React.FC = () => {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <p className="font-bold text-sm text-gray-800 truncate">{pick(c.callUs, lang)}</p>
+                    <p className="font-bold text-sm text-black truncate">{pick(c.callUs, lang)}</p>
                     <p className="text-gray-500 text-xs mt-0.5">01877715333</p>
                   </div>
                 </div>
-                <a href="tel:01877715333" className="text-white text-xs font-bold px-5 py-2.5 rounded-xl flex-shrink-0 text-center shadow-sm" style={{ background: '#1a237e' }}>
+                <a href="tel:01877715333" className="text-white text-xs font-bold px-5 py-2.5 rounded-xl flex-shrink-0 text-center shadow-sm bg-black hover:bg-neutral-800 transition-colors">
                   {pick(c.callBtn, lang)}
                 </a>
               </div>
@@ -106,11 +100,11 @@ const ContactSection: React.FC = () => {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <p className="font-bold text-sm text-gray-800 truncate">{pick(c.email, lang)}</p>
+                    <p className="font-bold text-sm text-black truncate">{pick(c.email, lang)}</p>
                     <p className="text-gray-500 text-xs mt-0.5 truncate max-w-[180px] sm:max-w-xs">info@shifapropertiesltdgroup.com</p>
                   </div>
                 </div>
-                <a href="mailto:info@shifapropertiesltdgroup.com" className="text-white text-xs font-bold px-5 py-2.5 rounded-xl flex-shrink-0 text-center shadow-sm" style={{ background: '#1a237e' }}>
+                <a href="mailto:info@shifapropertiesltdgroup.com" className="text-white text-xs font-bold px-5 py-2.5 rounded-xl flex-shrink-0 text-center shadow-sm bg-black hover:bg-neutral-800 transition-colors">
                   {pick(c.emailBtn, lang)}
                 </a>
               </div>
@@ -122,12 +116,12 @@ const ContactSection: React.FC = () => {
                     <MessageSquare className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <p className="font-bold text-sm text-gray-800 truncate">{pick(c.whatsapp, lang)}</p>
+                    <p className="font-bold text-sm text-black truncate">{pick(c.whatsapp, lang)}</p>
                     <p className="text-gray-500 text-xs mt-0.5">01877715333</p>
                   </div>
                 </div>
                 <a href="https://wa.me/8801877715333" target="_blank" rel="noopener noreferrer"
-                  className="text-white text-xs font-bold px-5 py-2.5 rounded-xl flex-shrink-0 text-center shadow-sm" style={{ background: '#25D366' }}>
+                  className="text-white text-xs font-bold px-5 py-2.5 rounded-xl flex-shrink-0 text-center shadow-sm bg-black hover:bg-neutral-800 transition-colors">
                   {pick(c.waBtn, lang)}
                 </a>
               </div>
@@ -139,11 +133,11 @@ const ContactSection: React.FC = () => {
                     <Briefcase className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <p className="font-bold text-sm text-gray-800 truncate">{pick(c.career, lang)}</p>
+                    <p className="font-bold text-sm text-black truncate">{pick(c.career, lang)}</p>
                     <p className="text-gray-500 text-xs mt-0.5 truncate max-w-[180px] sm:max-w-xs">career@shifapropertiesltdgroup.com</p>
                   </div>
                 </div>
-                <a href="mailto:career@shifapropertiesltdgroup.com" className="text-white text-xs font-bold px-5 py-2.5 rounded-xl flex-shrink-0 text-center shadow-sm" style={{ background: '#1a237e' }}>
+                <a href="mailto:career@shifapropertiesltdgroup.com" className="text-white text-xs font-bold px-5 py-2.5 rounded-xl flex-shrink-0 text-center shadow-sm bg-black hover:bg-neutral-800 transition-colors">
                   {pick(c.emailBtn, lang)}
                 </a>
               </div>
@@ -156,8 +150,8 @@ const ContactSection: React.FC = () => {
       {/* ── OFFICE LOCATIONS ── */}
       <div className="py-16 px-4" style={{ background: '#e8f4fd' }}>
         <div className="max-w-7xl mx-auto">
-          <motion.h2 className="text-center font-black text-2xl md:text-3xl mb-12"
-            style={{ color: '#1a237e', fontFamily: 'Playfair Display, serif' }}
+          <motion.h2 className="text-center font-black text-2xl md:text-3xl mb-12 text-black"
+            style={{ fontFamily: 'Playfair Display, serif' }}
             variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}>
             {pick(c.officesTitle, lang)}
           </motion.h2>
@@ -173,14 +167,13 @@ const ContactSection: React.FC = () => {
                       allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade"
                       title={office.name} className="w-full h-full" />
                     <a href={office.mapUrl} target="_blank" rel="noopener noreferrer"
-                      className="absolute top-2 right-2 bg-white text-xs font-bold px-3 py-1 rounded-full shadow flex items-center gap-1"
-                      style={{ color: '#1a237e' }}>
-                      <MapPin className="w-3 h-3" />
+                      className="absolute top-2 left-2 bg-white text-xs font-bold px-3 py-1 rounded-full shadow flex items-center gap-1 text-black">
+                      <MapPin className="w-3 h-3 text-black" />
                       {pick(c.mapsLink, lang)}
                     </a>
                   </div>
                   <div className="p-5">
-                    <h3 className="font-black text-sm text-center mb-4 uppercase tracking-wide" style={{ color: '#1a237e' }}>{office.name}</h3>
+                    <h3 className="font-black text-sm text-center mb-4 uppercase tracking-wide text-black">{office.name}</h3>
                     <div className="space-y-2 text-xs">
                       <div className="flex gap-2">
                         <span className="text-gray-400 w-16 flex-shrink-0">{pick(c.addressLabel, lang)}</span>
@@ -188,22 +181,22 @@ const ContactSection: React.FC = () => {
                       </div>
                       <div className="flex gap-2">
                         <span className="text-gray-400 w-16 flex-shrink-0">{pick(c.emailLabel, lang)}</span>
-                        <a href={`mailto:${office.email}`} className="text-blue-600 hover:underline truncate">{office.email}</a>
+                        <a href={`mailto:${office.email}`} className="text-neutral-900 font-semibold hover:underline truncate">{office.email}</a>
                       </div>
                       <div className="flex gap-2">
                         <span className="text-gray-400 w-16 flex-shrink-0">{pick(c.cellLabel, lang)}</span>
-                        <a href={`tel:${office.cell}`} className="text-gray-700 hover:text-blue-600">{office.cell}</a>
+                        <a href={`tel:${office.cell}`} className="text-gray-700 hover:text-black font-medium">{office.cell}</a>
                       </div>
                       <div className="flex gap-2">
                         <span className="text-gray-400 w-16 flex-shrink-0">{pick(c.hotlineLabel, lang)}</span>
-                        <a href={`tel:${office.hotline}`} className="text-gray-700 hover:text-blue-600">{office.hotline}</a>
+                        <a href={`tel:${office.hotline}`} className="text-gray-700 hover:text-black font-medium">{office.hotline}</a>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="px-5 pb-5">
                   <a href={office.mapUrl} target="_blank" rel="noopener noreferrer"
-                    className="block w-full text-center text-sm font-bold py-2 rounded-full border-2 border-[#1a237e] text-[#1a237e] bg-transparent hover:bg-[#1a237e] hover:text-white transition-all duration-200">
+                    className="block w-full text-center text-sm font-bold py-2 rounded-full border-2 border-black text-black bg-transparent hover:bg-black hover:text-white transition-all duration-200">
                     {pick(c.viewMap, lang)}
                   </a>
                 </div>
@@ -222,7 +215,7 @@ const ContactSection: React.FC = () => {
             <div className="absolute -bottom-10 -left-10 w-44 h-44 bg-blue-200/20 rounded-full blur-3xl" />
 
             <div className="relative z-10">
-              <h2 className="text-center font-black text-2xl md:text-3xl mb-2" style={{ color: '#1a237e', fontFamily: 'Playfair Display, serif' }}>
+              <h2 className="text-center font-black text-2xl md:text-3xl mb-2 text-black" style={{ fontFamily: 'Playfair Display, serif' }}>
                 {pick(c.formTitle, lang)}
               </h2>
               <p className="text-center text-gray-500 text-sm mb-10 max-w-lg mx-auto">{pick(c.formSubtitle, lang)}</p>
@@ -230,54 +223,58 @@ const ContactSection: React.FC = () => {
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-3xl mb-4 text-green-600">✓</div>
-                  <h3 className="font-extrabold text-xl mb-2" style={{ color: '#1a237e' }}>{pick(c.thankYou, lang)}</h3>
+                  <h3 className="font-extrabold text-xl mb-2 text-black">{pick(c.thankYou, lang)}</h3>
                   <p className="text-gray-600 text-sm max-w-sm">{pick(c.thankYouMsg, lang)}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="space-y-2">
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#1a237e]">{pick(c.nameLabel, lang)}</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-black">{pick(c.nameLabel, lang)}</label>
                       <input type="text" name="name" required value={formData.name} onChange={handleInputChange}
                         placeholder={pick(c.namePlaceholder, lang)}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent transition-all" />
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-black focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" />
                     </div>
                     <div className="space-y-2">
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#1a237e]">{pick(c.phoneLabel, lang)}</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-black">{pick(c.phoneLabel, lang)}</label>
                       <input type="tel" name="phone" required value={formData.phone} onChange={handleInputChange}
                         placeholder={pick(c.phonePlaceholder, lang)}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent transition-all" />
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-black focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" />
                     </div>
                     <div className="space-y-2">
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#1a237e]">{pick(c.emailInputLabel, lang)}</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-black">{pick(c.emailInputLabel, lang)}</label>
                       <input type="email" name="email" required value={formData.email} onChange={handleInputChange}
                         placeholder={pick(c.emailPlaceholder, lang)}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent transition-all" />
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-black focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="md:col-span-1 space-y-2">
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#1a237e]">{pick(c.interestLabel, lang)}</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-black">{pick(c.interestLabel, lang)}</label>
                       <select name="subject" value={formData.subject} onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent transition-all appearance-none cursor-pointer"
-                        style={{ backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='%23C9A84C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>")`, backgroundPosition: 'right 12px center', backgroundRepeat: 'no-repeat', backgroundSize: '16px' }}>
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-black focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all appearance-none cursor-pointer"
+                        style={{ backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>")`, backgroundPosition: 'right 12px center', backgroundRepeat: 'no-repeat', backgroundSize: '16px' }}>
                         {c.interests.map((item, i) => (
                           <option key={i} value={INTEREST_VALUES[i]}>{pick(item, lang)}</option>
                         ))}
                       </select>
                     </div>
                     <div className="md:col-span-2 space-y-2">
-                      <label className="block text-xs font-bold uppercase tracking-wider text-[#1a237e]">{pick(c.msgLabel, lang)}</label>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-black">{pick(c.msgLabel, lang)}</label>
                       <textarea name="message" required rows={1} value={formData.message} onChange={handleInputChange}
                         placeholder={pick(c.msgPlaceholder, lang)}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gold-400 focus:border-transparent transition-all resize-y min-h-[46px]" />
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-black focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-y min-h-[46px]" />
                     </div>
                   </div>
 
                   <div className="text-center pt-2">
-                    <button type="submit" className="btn-gold px-12 py-3.5 text-sm font-bold shadow-md hover:shadow-lg transition-all">
-                      {pick(c.sendBtn, lang)}
+                    <button
+                      type="submit"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-900 via-blue-700 to-sky-500 hover:from-blue-950 hover:to-sky-600 text-white px-14 py-3.5 text-xs font-black uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-300 rounded-full transform hover:scale-[1.01]"
+                    >
+                      <span>{pick(c.sendBtn, lang)}</span>
+                      <span className="text-sm font-light select-none">→</span>
                     </button>
                   </div>
                 </form>

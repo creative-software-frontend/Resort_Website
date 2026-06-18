@@ -16,11 +16,10 @@ const TestimonialsSection: React.FC = () => {
 
   return (
     <section id="testimonials" className="gs-section" style={{ background: 'linear-gradient(180deg,#f8f9ff 0%,#e8eaf6 100%)' }}>
-      <div className="gs-container">
+      <div className="gs-container ">
         <motion.div className="text-center mb-14" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}>
-          <span className="section-label">{pick(tm.label, lang)}</span>
-          <h2 className="section-title">{pick(tm.title, lang)}</h2>
-          <div className="gold-divider mx-auto" />
+          <span className="section-label text-slate-800">{pick(tm.label, lang)}</span>
+          <h2 className="section-title rgba(0,0,0,0.05)">{pick(tm.title, lang)}</h2>
         </motion.div>
 
         <motion.div
@@ -43,8 +42,8 @@ const TestimonialsSection: React.FC = () => {
               <div className="flex items-center gap-3 mb-4">
                 <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover ring-2 ring-[#C9A84C]" />
                 <div>
-                  <h4 className="font-bold text-sm text-[#1a237e]">{t.name}</h4>
-                  <p className="text-xs text-gray-400">{t.role}</p>
+                  <h4 className="font-bold text-sm text-slate-900">{t.name}</h4>
+                  <p className="text-xs text-slate-500">{t.role}</p>
                 </div>
               </div>
               <div className="flex gap-0.5 mb-3">

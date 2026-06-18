@@ -1,23 +1,23 @@
 import { motion, type Variants } from 'framer-motion';
-import logoImg from '../../assets/image/logo.png';
+import logoImg from '../../assets/image/logo.jpeg';
 import img2 from '../../assets/image/6fa3ef6e-c22d-45b6-a859-b2108f8af13c.jfif';
 import { Counter } from '../ui/Counter';
 import { useLanguage } from '../../context/LanguageContext';
 import { UI, pick } from '../../data/translations';
 
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+  hidden: { opacity: 0, y: 25 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } }
 };
 const fadeInLeft: Variants = {
-  hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } }
+  hidden: { opacity: 0, x: -25 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } }
 };
 const fadeInRight: Variants = {
-  hidden: { opacity: 0, x: 30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } }
+  hidden: { opacity: 0, x: 25 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } }
 };
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
 };
@@ -27,104 +27,205 @@ const AboutSection: React.FC = () => {
   const a = UI.about;
 
   return (
-    <section id="about" className="overflow-hidden" style={{ background: 'linear-gradient(180deg,#f0f4ff 0%,#ffffff 100%)' }}>
+    /* Changed overflow-hidden to visible to let the metric card float freely outside the block boundaries */
+    <section id="about" className="overflow-visible bg-white">
 
-      {/* ── 1. WHO WE ARE ── */}
-      {/* Fixed: Changed pb-0 to responsive bottom padding to handle the absolute floating layout element gracefully */}
-      <div className="gs-section pb-20 md:pb-16 lg:pb-20">
-        <div className="gs-container">
+      {/* ── 1. WHO WE ARE SECTION ── */}
+      <div className="gs-section py-12 overflow-visible">
+        <div className="gs-container max-w-7xl mx-auto px-4 overflow-visible">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-            {/* Left — text */}
-            <motion.div variants={fadeInLeft} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}>
-              <span className="section-label">{pick(a.label, lang)}</span>
-              <h2 className="section-title mb-4">{pick(a.title, lang)}</h2>
-              <div className="gold-divider" />
-              <p className="text-gray-500 mt-5 mb-5 leading-relaxed">{pick(a.p1, lang)}</p>
-              <p className="text-gray-500 mb-8 leading-relaxed">{pick(a.p2, lang)}</p>
+            {/* Left Content Area */}
+            <motion.div
+              variants={fadeInLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-100px' }}
+            >
+              <span
+                className="text-xs font-bold tracking-[0.2em] uppercase block mb-1"
+                style={{ color: 'var(--color-primary)' }}
+              >
+                {pick(a.label, lang)}
+              </span>
+              <h2
+                className="text-3xl md:text-4xl font-bold tracking-tight mb-4"
+                style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-dark)' }}
+              >
+                {pick(a.title, lang)}
+              </h2>
 
+              <p className="text-gray-500 text-sm mt-5 mb-5 leading-relaxed">{pick(a.p1, lang)}</p>
+              <p className="text-gray-500 text-sm mb-8 leading-relaxed">{pick(a.p2, lang)}</p>
+
+              {/* Bullet Points */}
               <ul className="space-y-3 mb-8">
                 {a.bullets.map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm font-medium text-gray-700">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs text-white"
-                      style={{ background: 'linear-gradient(135deg,#C9A84C,#fde68a)' }}>✓</span>
+                    <span
+                      className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs text-white"
+                      style={{ background: 'linear-gradient(135deg, #C9A84C, #fde68a)' }}
+                    >
+                      ✓
+                    </span>
                     {pick(item, lang)}
                   </li>
                 ))}
               </ul>
 
-              <a href="/projects" id="about-see-projects-btn" className="btn-primary">
+              {/* View Projects Link Button Layout - Changed to Blue Theme */}
+              <a
+                href="/projects"
+                id="about-see-projects-btn"
+                className="inline-block text-white font-semibold text-xs px-8 py-3.5 rounded-full uppercase tracking-wider 
+                           transition-all duration-300 text-center shadow-md hover:brightness-110 active:scale-[0.98] hover:shadow-lg"
+                style={{ background: 'linear-gradient(135deg, var(--color-primary, #1a237e), #0288D1)' }}
+              >
                 {pick(a.seeProjects, lang)}
               </a>
             </motion.div>
 
-            {/* Right — image */}
-            <motion.div className="relative mt-8 lg:mt-0" variants={fadeInRight} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}>
-              <div className="rounded-3xl overflow-hidden img-overlay shadow-card-lg h-80 md:h-[480px]">
+            {/* Right Media Display Area */}
+            <motion.div
+              className="relative mt-4 lg:mt-0 lg:pl-6 overflow-visible"
+              variants={fadeInRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-100px' }}
+            >
+              {/* Image with gentle float */}
+              <motion.div
+                className="rounded-3xl overflow-hidden img-overlay shadow-card-lg h-80 md:h-[480px]"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+              >
                 <motion.img
-                  whileHover={{ scale: 1.05 }} transition={{ duration: 0.8 }}
-                  src={img2} alt="Shifa Properties Ltd luxury Hotel pool and facade"
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ duration: 0.7 }}
+                  src={img2}
+                  alt="Shifa Properties Ltd luxury Hotel pool and facade"
                   className="w-full h-full object-cover origin-center"
                 />
-              </div>
+              </motion.div>
 
-              {/* Floating logo card */}
-              <div className="absolute -bottom-10 md:-bottom-6 -left-2 md:-left-4 glass-card p-4 shadow-card animate-float z-10"
-                style={{ background: 'white', borderRadius: '20px', boxShadow: '0 8px 40px rgba(26,35,126,0.15)' }}>
+              {/* Floating Brand & Performance Metric Card */}
+              <motion.div
+                className="absolute -bottom-12 -left-4 md:-bottom-8 md:-left-10 glass-card p-5 shadow-card z-30 w-[calc(100%-16px)] sm:w-auto min-w-[290px]"
+                style={{ background: '#ffffff', borderRadius: 'var(--radius-xl)', boxShadow: 'var(--shadow-card-lg)' }}
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
+              >
                 <div className="flex items-center gap-3">
-                  <img src={logoImg} alt="Shifa Properties Ltd Group Logo"
-                    className="w-16 h-16 rounded-full object-contain bg-white border-2 border-gold-300 shadow-gold"
-                    style={{ padding: '3.5px' }} />
+                  <img
+                    src={logoImg}
+                    alt="Shifa Properties Ltd Group Logo"
+                    className="w-14 h-14 rounded-full object-contain bg-white border border-neutral-100"
+                    style={{ padding: '2px' }}
+                  />
                   <div>
-                    <p className="font-black text-sm leading-none"
-                      style={{ fontFamily: 'Playfair Display, serif', color: '#1a237e' }}>Shifa Properties Ltd</p>
-                    <p className="text-xs tracking-widest uppercase font-medium" style={{ color: '#C9A84C' }}>GROUP</p>
+                    <p
+                      className="font-bold text-sm leading-tight text-black"
+                      style={{ fontFamily: "'Playfair Display', serif" }}
+                    >
+                      Shifa Properties Ltd
+                    </p>
+                    <p
+                      className="text-[10px] tracking-widest uppercase font-semibold mt-0.5"
+                      style={{ color: '#C9A84C' }}
+                    >
+                      GROUP
+                    </p>
                   </div>
                 </div>
-                <div className="mt-3 pt-3 border-t border-gray-100 flex gap-4">
-                  <div className="text-center">
-                    <div className="font-black text-lg" style={{ color: '#1a237e' }}><Counter value="10+" /></div>
-                    <p className="text-gray-400 text-xs">{pick(a.years, lang)}</p>
+
+                {/* Counter Metric Section */}
+                <div className="mt-4 pt-3 border-t border-gray-100 flex gap-6 justify-between">
+                  <div className="text-left">
+                    <div className="font-bold text-base text-neutral-900"><Counter value="10+" /></div>
+                    <p className="text-gray-400 text-[11px] font-medium uppercase tracking-wider mt-0.5">{pick(a.years, lang)}</p>
                   </div>
-                  <div className="text-center">
-                    <div className="font-black text-gold-500 text-lg"><Counter value="5000+" /></div>
-                    <p className="text-gray-400 text-xs">{pick(a.investors, lang)}</p>
+                  <div className="text-left">
+                    <div className="font-bold text-base text-neutral-900"><Counter value="5000+" /></div>
+                    <p className="text-gray-400 text-[11px] font-medium uppercase tracking-wider mt-0.5">{pick(a.investors, lang)}</p>
                   </div>
-                  <div className="text-center">
-                    <div className="font-black text-lg" style={{ color: '#0288D1' }}><Counter value="15+" /></div>
-                    <p className="text-gray-400 text-xs">{pick(a.projects, lang)}</p>
+                  <div className="text-left">
+                    <div className="font-bold text-base text-neutral-900"><Counter value="15+" /></div>
+                    <p className="text-gray-400 text-[11px] font-medium uppercase tracking-wider mt-0.5">{pick(a.projects, lang)}</p>
                   </div>
                 </div>
-              </div>
-              <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full opacity-20"
-                style={{ background: 'radial-gradient(circle,#C9A84C,transparent)' }} />
+              </motion.div>
             </motion.div>
 
           </div>
         </div>
       </div>
-      {/* ── 2. SISTER CONCERN ── */}
-      <div className="gs-section py-20" style={{ background: 'linear-gradient(135deg,#e8f4fd 0%,#dbeeff 100%)' }}>
-        <div className="gs-container">
-          <motion.div className="text-center mb-12" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}>
-            <span className="section-label">{pick(a.familyLabel, lang)}</span>
-            <h2 className="section-title">{pick(a.familyTitle, lang)}</h2>
-            <div className="gold-divider mx-auto mt-4" />
-          </motion.div>
+
+      {/* ── 2. SISTER CONCERN SECTION (Clean Premium Background Gradient) ── */}
+      <div
+        className="gs-section py-12"
+        style={{ background: 'linear-gradient(180deg, rgba(240, 244, 255, 0.4) 0%, rgba(255, 255, 255, 1) 100%)' }}
+      >
+        <div className="gs-container max-w-7xl mx-auto px-4">
+
+          {/* Header Area */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}
+            className="text-center mb-12"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+          >
+            <span
+              className="text-xs font-bold tracking-[0.2em] uppercase block mb-1"
+              style={{ color: 'var(--color-primary)' }}
+            >
+              {pick(a.familyLabel, lang)}
+            </span>
+            <h2
+              className="text-3xl md:text-4xl font-bold tracking-tight mb-3"
+              style={{ fontFamily: "'Playfair Display', serif", color: 'var(--color-dark)' }}
+            >
+              {pick(a.familyTitle, lang)}
+            </h2>
+          </motion.div>
+
+          {/* Grid Layout Cards */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
           >
             {a.sisterConcerns.map((item, i) => (
-              <motion.div key={i} variants={fadeInUp}
-                className="gs-card p-6 text-center hover:shadow-gold transition-all duration-300 hover:-translate-y-2 group">
-                <div className="w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-black text-lg"
-                  style={{ background: 'linear-gradient(135deg,#1a237e,#0288D1)' }}>{i + 1}</div>
-                <h3 className="font-black text-sm mb-2 leading-snug" style={{ color: '#1a237e' }}>{pick(item.name, lang)}</h3>
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1.5 group select-none"
+                style={{
+                  borderRadius: 'var(--radius-lg)',
+                  boxShadow: 'var(--shadow-card)',
+                }}
+                whileHover={{ boxShadow: 'var(--shadow-card-lg)' }}
+              >
+                {/* Numeric Indicator Ball */}
+                <div
+                  className="w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-sm"
+                  style={{ background: 'linear-gradient(135deg, var(--color-primary, #1a237e), #0288D1)' }}
+                >
+                  {i + 1}
+                </div>
+                <h3
+                  className="font-semibold text-sm mb-2 leading-snug transition-colors duration-200 group-hover:text-amber-600"
+                  style={{ color: 'var(--color-dark, #1a237e)' }}
+                >
+                  {pick(item.name, lang)}
+                </h3>
                 <p className="text-gray-500 text-xs leading-relaxed">{pick(item.sub, lang)}</p>
               </motion.div>
             ))}
           </motion.div>
+
         </div>
       </div>
 

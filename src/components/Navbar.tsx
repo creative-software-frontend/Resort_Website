@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logoImg from '../assets/image/logo.png';
+import logoImg from '../assets/image/logo.jpeg';
 import logo from '../assets/image/logo2.png';
 import LanguageToggle from './LanguageToggle';
 import { useLanguage } from '../context/LanguageContext';
@@ -13,15 +13,15 @@ const getNavLinks = (lang: 'EN' | 'BN') => [
     label: pick(UI.nav.company, lang),
     href: '#',
     children: [
-      { label: pick(UI.nav.whyUs, lang),    href: '/why-us' },
-      { label: pick(UI.nav.aboutUs, lang),  href: '/about' },
+      { label: pick(UI.nav.whyUs, lang), href: '/why-us' },
+      { label: pick(UI.nav.aboutUs, lang), href: '/about' },
       { label: pick(UI.nav.ourTeams, lang), href: '/our-team' },
-      { label: pick(UI.nav.career, lang),   href: '/careers' },
+      { label: pick(UI.nav.career, lang), href: '/careers' },
     ],
   },
-  { label: pick(UI.nav.projects, lang),         href: '/projects' },
-  { label: pick(UI.nav.news, lang),             href: '/news' },
-  { label: pick(UI.nav.contact, lang),          href: '/contact' },
+  { label: pick(UI.nav.projects, lang), href: '/projects' },
+  { label: pick(UI.nav.news, lang), href: '/news' },
+  { label: pick(UI.nav.contact, lang), href: '/contact' },
   { label: pick(UI.nav.downloadBrochure, lang), href: '/download-brochure' },
 ];
 
@@ -118,28 +118,29 @@ const Navbar: React.FC = () => {
     <nav
       ref={navRef}
       id="main-navbar"
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl transition-all duration-400 rounded-full
-        ${isLight
-          ? 'bg-white/95 backdrop-blur-md shadow-lg py-1.5 px-4 border border-gray-100'
-          : 'bg-white/10 backdrop-blur-md shadow-sm py-2 px-4 border border-white/15'}`}
+      className={`fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl transition-all duration-300 rounded-full
+        bg-white py-1.5 px-4
+        ${scrolled
+          ? 'shadow-lg border border-gray-100'
+          : 'shadow-md border border-gray-100/80'}`}
     >
       <div className="flex items-center justify-between w-full gap-2">
 
         {/* ── LEFT LOGO ── */}
         <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0" id="nav-logo-left">
           <img
-            src={logo}
+            src={logoImg}
             alt="Shifa Properties Ltd Group Logo"
             className="w-14 h-14 rounded-full object-contain transition-transform duration-300 group-hover:scale-105"
           />
           <div className="leading-tight hidden sm:block">
-            <p className={`font-black text-lg tracking-tight transition-colors duration-300
-              ${isLight ? 'text-navy-500' : 'text-white'}`}
-              style={{ fontFamily: 'Playfair Display, serif' }}>
+            <p
+              className="font-black text-lg tracking-tight"
+              style={{ fontFamily: 'Playfair Display, serif', color: 'var(--color-dark)' }}
+            >
               Shifa Properties Ltd
             </p>
-            <p className={`text-[10px] tracking-[0.2em] uppercase font-bold transition-colors duration-300
-              ${isLight ? 'text-gold-500' : 'text-gold-300'}`}>
+            <p className="text-[10px] tracking-[0.2em] uppercase font-bold" style={{ color: '#C9A84C' }}>
               GROUP
             </p>
           </div>
@@ -153,8 +154,8 @@ const Navbar: React.FC = () => {
 
             if (hasChildren) {
               return (
-                <li 
-                  key={link.label} 
+                <li
+                  key={link.label}
                   className="relative group"
                   onMouseEnter={() => handleMouseEnter(link.label)}
                   onMouseLeave={handleMouseLeave}
@@ -162,11 +163,8 @@ const Navbar: React.FC = () => {
                   <button
                     id={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}-dropdown`}
                     onClick={(e) => { e.preventDefault(); setOpenDropdown(link.label); }}
-                    className={`flex items-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300
-                      ${isLight
-                        ? 'text-gray-700 hover:text-navy-500 hover:bg-navy-50'
-                        : 'text-white/90 hover:text-white hover:bg-white/15'}
-                      border border-transparent`}
+                    className="flex items-center gap-1 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300
+                      text-[#1a1a1a] hover:text-navy-500 hover:bg-navy-50 border border-transparent"
                   >
                     {link.label}
                     <svg
@@ -179,10 +177,10 @@ const Navbar: React.FC = () => {
 
                   {/* Dropdown menu */}
                   <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-300
-                    ${openDropdown === link.label ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
+                    ${openDropdown === link.label ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-3 pointer-events-none'}`}>
                     <div className="w-56 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-                      {/* Gold accent bar */}
-                      <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg,#1a237e,#C9A84C)' }} />
+                      {/* Navy accent bar */}
+                      <div className="h-1 w-full" style={{ backgroundColor: '#1a237e' }} />
                       <div className="py-2">
                         {link.children!.map((child) => (
                           <a
@@ -202,9 +200,9 @@ const Navbar: React.FC = () => {
                                 setOpenDropdown(null);
                               }
                             }}
-                            className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-navy-50 hover:text-navy-600 transition-colors duration-200 group/link"
+                            className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#1a1a1a] hover:bg-navy-50 hover:text-navy-600 transition-colors duration-200 group/link"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 opacity-0 group-hover/link:opacity-100 transition-opacity duration-200 flex-shrink-0" />
+                            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 opacity-0 group-hover/link:opacity-100 transition-opacity duration-200" style={{ backgroundColor: '#1a237e' }} />
                             {child.label}
                           </a>
                         ))}
@@ -227,13 +225,9 @@ const Navbar: React.FC = () => {
                     }
                   }}
                   className={`px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300
-                    ${isLight
-                      ? 'text-gray-700 hover:text-navy-500 hover:bg-navy-50'
-                      : 'text-white/90 hover:text-white hover:bg-white/15'}
+                    text-[#1a1a1a] hover:text-navy-500 hover:bg-navy-50
                     ${isActive
-                      ? isLight
-                        ? 'text-navy-600 font-bold bg-navy-50/80 shadow-sm border border-navy-100/50'
-                        : 'text-white font-bold bg-white/20 shadow-sm border border-white/25'
+                      ? 'text-navy-600 font-bold bg-navy-50 shadow-sm border border-navy-100/60'
                       : 'border border-transparent'}`}
                 >
                   {link.label}
@@ -248,10 +242,10 @@ const Navbar: React.FC = () => {
           {/* Right-side secondary logo */}
           <Link to="/" className="flex items-center gap-2 group" id="nav-logo-right">
             <img
-              src={logoImg}
+              src={logo}
               alt="Shifa Properties Ltd Group"
               className="w-10 h-10 rounded-full object-contain bg-white border border-gold-300 shadow-gold transition-transform duration-300 group-hover:scale-105"
-              style={{ padding: '2px' }}
+              style={{ padding: '0px' }}
             />
           </Link>
 

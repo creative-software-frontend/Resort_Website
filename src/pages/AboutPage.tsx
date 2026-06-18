@@ -41,60 +41,59 @@ const AboutPage: React.FC = () => {
         <AboutSection />
 
         {/* ── Our Mission ── */}
-        <div className="gs-section py-20 bg-white">
+        <div className="gs-section pt-10 pb-16 bg-white">
           <div className="gs-container">
             <div className="text-center mb-12">
               <span className="section-label">{lang === 'EN' ? 'Our Direction' : 'আমাদের দিকনির্দেশনা'}</span>
-              <h2 className="section-title">{lang === 'EN' ? 'Our Mission' : 'আমাদের লক্ষ্য'}</h2>
-              <div className="gold-divider mx-auto mt-4" />
+              <h2 className="section-title text-black">{lang === 'EN' ? 'Our Mission' : 'আমাদের লক্ষ্য'}</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { 
-                  icon: <Award className="w-6 h-6 text-[#C9A84C]" />, 
-                  title: { en: 'Quality First', bn: 'গুণগত মান প্রথমে' }, 
-                  body: { en: 'Ensure high quality products with the most modern & innovative concepts.', bn: 'সবচেয়ে আধুনিক এবং উদ্ভাবনী ধারণার সাথে উচ্চ মানের পণ্য নিশ্চিত করা।' } 
+                {
+                  icon: <Award className="w-6 h-6 text-[#C9A84C]" />,
+                  title: { en: 'Quality First', bn: 'গুণগত মান প্রথমে' },
+                  body: { en: 'Ensure high quality products with the most modern & innovative concepts.', bn: 'সবচেয়ে আধুনিক এবং উদ্ভাবনী ধারণার সাথে উচ্চ মানের পণ্য নিশ্চিত করা।' }
                 },
-                { 
-                  icon: <TrendingUp className="w-6 h-6 text-[#0288D1]" />, 
-                  title: { en: 'Economic Growth', bn: 'অর্থনৈতিক প্রবৃদ্ধি' }, 
-                  body: { en: 'Grow the economy by reducing poverty & unemployment across Bangladesh.', bn: 'বাংলাদেশ জুড়ে দারিদ্র্য ও বেকারত্ব হ্রাস করে অর্থনীতি বৃদ্ধি করা।' } 
+                {
+                  icon: <TrendingUp className="w-6 h-6 text-[#0288D1]" />,
+                  title: { en: 'Economic Growth', bn: 'অর্থনৈতিক প্রবৃদ্ধি' },
+                  body: { en: 'Grow the economy by reducing poverty & unemployment across Bangladesh.', bn: 'বাংলাদেশ জুড়ে দারিদ্র্য ও বেকারত্ব হ্রাস করে অর্থনীতি বৃদ্ধি করা।' }
                 },
-                { 
-                  icon: <ShieldCheck className="w-6 h-6 text-[#1a237e]" />, 
-                  title: { en: 'Safe Investment', bn: 'নিরাপদ বিনিয়োগ' }, 
-                  body: { en: 'Create tension-free sources of income by providing guaranteed & safe investment returns.', bn: 'নিশ্চিত এবং নিরাপদ বিনিয়োগ আয়ের মাধ্যমে চিন্তামুক্ত আয়ের উৎস তৈরি করা।' } 
+                {
+                  icon: <ShieldCheck className="w-6 h-6 text-[#1a237e]" />,
+                  title: { en: 'Safe Investment', bn: 'নিরাপদ বিনিয়োগ' },
+                  body: { en: 'Create tension-free sources of income by providing guaranteed & safe investment returns.', bn: 'নিশ্চিত এবং নিরাপদ বিনিয়োগ আয়ের মাধ্যমে চিন্তামুক্ত আয়ের উৎস তৈরি করা।' }
                 },
-                { 
-                  icon: <Users className="w-6 h-6 text-[#C9A84C]" />, 
-                  title: { en: 'Client Priority', bn: 'ক্লায়েন্ট অগ্রাধিকার' }, 
-                  body: { en: 'Give the highest priority and ensure the best service to all our valued clients.', bn: 'আমাদের সকল সম্মানিত ক্লায়েন্টকে সর্বোচ্চ অগ্রাধিকার দেওয়া এবং সেরা সেবা নিশ্চিত করা।' } 
+                {
+                  icon: <Users className="w-6 h-6 text-[#C9A84C]" />,
+                  title: { en: 'Client Priority', bn: 'ক্লায়েন্ট অগ্রাধিকার' },
+                  body: { en: 'Give the highest priority and ensure the best service to all our valued clients.', bn: 'আমাদের সকল সম্মানিত ক্লায়েন্টকে সর্বোচ্চ অগ্রাধিকার দেওয়া এবং সেরা সেবা নিশ্চিত করা।' }
                 },
-                { 
-                  icon: <Compass className="w-6 h-6 text-[#0288D1]" />, 
-                  title: { en: 'Tourism Vision', bn: 'পর্যটন ভিশন' }, 
-                  body: { en: 'Make Bangladesh one of the top tourism destinations in the world.', bn: 'বাংলাদেশকে বিশ্বের শীর্ষ পর্যটন গন্তব্যগুলোর একটিতে পরিণত করা।' } 
+                {
+                  icon: <Compass className="w-6 h-6 text-[#0288D1]" />,
+                  title: { en: 'Tourism Vision', bn: 'পর্যটন ভিশন' },
+                  body: { en: 'Make Bangladesh one of the top tourism destinations in the world.', bn: 'বাংলাদেশকে বিশ্বের শীর্ষ পর্যটন গন্তব্যগুলোর একটিতে পরিণত করা।' }
                 },
-                { 
-                  icon: <Flag className="w-6 h-6 text-[#1a237e]" />, 
-                  title: { en: 'National Pride', bn: 'জাতীয় গর্ব' }, 
-                  body: { en: 'Make the nation prestigious & wealthy through excellence in hospitality.', bn: 'আতিথেয়তায় উৎকর্ষের মাধ্যমে জাতিকে মর্যাদাপূর্ণ ও সমৃদ্ধ করা।' } 
+                {
+                  icon: <Flag className="w-6 h-6 text-[#1a237e]" />,
+                  title: { en: 'National Pride', bn: 'জাতীয় গর্ব' },
+                  body: { en: 'Make the nation prestigious & wealthy through excellence in hospitality.', bn: 'আতিথেয়তায় উৎকর্ষের মাধ্যমে জাতিকে মর্যাদাপূর্ণ ও সমৃদ্ধ করা।' }
                 },
               ].map((m, i) => (
                 <div key={i} className="gs-card p-6 hover:shadow-gold transition-all duration-300 hover:-translate-y-1 group border border-slate-100 rounded-xl bg-white">
                   <div className="p-3 bg-slate-50 w-fit rounded-lg mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:bg-slate-100">
                     {m.icon}
                   </div>
-                  <h3 className="font-black text-sm mb-2" style={{ color: '#1a237e' }}>{pick(m.title, lang)}</h3>
-                  <p className="text-gray-500 text-xs leading-relaxed">{pick(m.body, lang)}</p>
+                  {/* এখানে text-black ব্যবহার করা হয়েছে লেখা গাঢ় করার জন্য */}
+                  <h3 className="font-black text-sm mb-2 text-black">{pick(m.title, lang)}</h3>
+                  <p className="text-gray-800 text-xs leading-relaxed">{pick(m.body, lang)}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
-
         {/* ── Enhanced Vision Section ── */}
-        <section className="relative py-24 overflow-hidden bg-[#f8f9fc]">
+        <section className="relative py-16 overflow-hidden bg-[#f8f9fc]">
           {/* Subtle Background Pattern */}
           <div className="absolute top-0 right-0 w-1/3 h-full bg-[#1a237e]/5 skew-x-12 -mr-20" />
 
@@ -170,10 +169,10 @@ const AboutPage: React.FC = () => {
         {/* ── Our Values ── */}
         <div className="gs-section py-16 bg-white">
           <div className="gs-container">
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <span className="section-label">{lang === 'EN' ? 'What We Stand For' : 'আমরা যা বিশ্বাস করি'}</span>
               <h2 className="section-title">{pick(UI.whyUs.values.title, lang)}</h2>
-              <div className="gold-divider mx-auto" />
+
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[

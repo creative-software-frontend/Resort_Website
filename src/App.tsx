@@ -5,6 +5,7 @@ import { LanguageProvider } from './context/LanguageContext';
 import Navbar       from './components/Navbar';
 import Footer       from './components/Footer';
 import ScrollToTop  from './components/ScrollToTop';
+import FloatingChat from './components/FloatingChat';
 import LandingPage  from './pages/LandingPage';
 import CareerPage   from './pages/CareerPage';
 import AboutPage    from './pages/AboutPage';
@@ -67,6 +68,7 @@ const App: React.FC = () => (
       <Navbar />
       <AnimatedRoutes />
       <Footer />
+      <FloatingChat />
       <ScrollToTop />
     </BrowserRouter>
   </LanguageProvider>

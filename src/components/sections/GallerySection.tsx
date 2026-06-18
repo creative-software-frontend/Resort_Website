@@ -56,12 +56,12 @@ const GallerySection: React.FC = () => {
   }, [lightbox]);
 
   return (
-    <section id="gallery" className="pt-0 pb-12" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f0f4ff 100%)' }}>
+    <section id="gallery" className="pt-0 pb-9" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f0f4ff 100%)' }}>
       <div className="gs-container">
 
         {/* Heading */}
         <motion.div
-          className="text-center mb-14"
+          className="text-center mb-6"
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
@@ -69,15 +69,25 @@ const GallerySection: React.FC = () => {
         >
           <span className="section-label">Visual Showcase</span>
           <h2 className="section-title">Project Image Gallery</h2>
-          <div className="gold-divider mx-auto" />
-          <p className="section-subtitle mx-auto mt-4">
+          <p className="section-subtitle mx-auto mt-3">
             Explore our stunning collection of architectural renders and real imagery from our premium hotel and Hotel developments.
           </p>
         </motion.div>
 
-        {/* Masonry-style gallery grid */}
         <motion.div
-          className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-0"
+          className="text-center mb-0"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <span className="text-[#C9A84C] font-bold tracking-[0.2em] uppercase text-xs">Visual Showcase</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-white mt-2">Project Image Gallery</h2>
+        </motion.div>
+
+        {/* Masonry-style gallery grid with adjusted gaps */}
+        <motion.div
+          className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6" // Increased gap from 4 to 6
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -86,10 +96,8 @@ const GallerySection: React.FC = () => {
           {GALLERY.map((item, idx) => (
             <motion.div
               key={idx}
-              id={`gallery-item-${idx}`}
               variants={fadeInUp}
-              className="group relative break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer
-                         shadow-card hover:shadow-card-lg transition-all duration-400"
+              className="group relative break-inside-avoid mb-6 rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500" // Increased mb from 4 to 6
               onClick={() => setLightbox(idx)}
             >
               <motion.img
@@ -97,19 +105,17 @@ const GallerySection: React.FC = () => {
                 transition={{ duration: 0.6 }}
                 src={item.src}
                 alt={item.title}
-                className="w-full h-auto object-cover origin-center"
+                className="w-full h-auto object-cover"
                 loading="lazy"
               />
+
               {/* Hover overlay */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-400
-                              flex flex-col items-start justify-end p-4"
-                style={{ background: 'linear-gradient(0deg, rgba(13,13,26,0.85) 0%, rgba(26,35,126,0.40) 60%, transparent 100%)' }}>
-                <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold mb-2 tracking-wider uppercase"
-                  style={{ background: 'linear-gradient(135deg,#C9A84C,#fde68a)', color: '#0D0D1A' }}>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col items-start justify-end p-6"
+                style={{ background: 'linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%)' }}>
+                <span className="px-3 py-1 rounded-full text-[10px] font-bold mb-2 uppercase bg-[#C9A84C] text-[#060614]">
                   {item.tag}
                 </span>
-                <p className="text-white text-sm font-semibold leading-tight">{item.title}</p>
-                <span className="text-white/60 text-xs mt-1">Click to expand ↗</span>
+                <p className="text-white text-sm font-semibold">{item.title}</p>
               </div>
             </motion.div>
           ))}

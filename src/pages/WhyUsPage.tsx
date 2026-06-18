@@ -13,17 +13,8 @@ import designerImg from '../assets/image/designer.png';
 import expertise2Img from '../assets/image/expertise2.png';
 import empowerImg from '../assets/image/empower.png';
 
-// Floating animation variants for modern motion
-const floatingAnimation: Variants = {
-  animate: {
-    y: [0, -15, 0],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: 'easeInOut',
-    },
-  },
-};
+// Direct animate values for infinite float (variant-based animate does not loop reliably)
+const floatTransition = { duration: 4, repeat: Infinity, ease: 'easeInOut' as const };
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -60,14 +51,14 @@ const WhyUsPage: React.FC = () => {
               <h2 className="text-[var(--color-primary)] text-3xl md:text-4xl font-bold leading-tight mb-6 font-serif">
                 {pick(t.empower.title, lang)}
               </h2>
-              <div className="gold-divider mb-6" />
               <p className="text-[var(--color-gray)] text-base md:text-lg leading-relaxed">
                 {pick(t.empower.desc, lang)}
               </p>
             </motion.div>
             <div className="flex-1 flex justify-center w-full">
               <motion.div
-                variants={floatingAnimation} animate="animate"
+                animate={{ y: [0, -14, 0] }}
+                transition={floatTransition}
                 className="w-full max-w-[500px] aspect-video rounded-2xl shadow-card-lg overflow-hidden border-4 border-white"
               >
                 <img src={empowerImg} alt="Solutions Graphic" className="w-full h-full object-cover" />
@@ -88,9 +79,8 @@ const WhyUsPage: React.FC = () => {
 
             <motion.div
               className="mt-8 relative w-full max-w-5xl h-auto flex justify-center px-4"
-              variants={floatingAnimation}
-              animate="animate"
-              style={{ animationDelay: '1s' }}
+              animate={{ y: [0, -14, 0] }}
+              transition={{ ...floatTransition, delay: 1 }}
             >
               <img
                 src={expertise2Img}
@@ -119,7 +109,8 @@ const WhyUsPage: React.FC = () => {
           <div className="gs-container flex flex-col lg:flex-row items-center justify-between gap-16 relative z-10">
             <div className="flex-1 flex justify-center w-full relative">
               <motion.div
-                variants={floatingAnimation} animate="animate"
+                animate={{ y: [0, -12, 0] }}
+                transition={{ ...floatTransition, delay: 0.5 }}
                 className="relative z-10 w-full max-w-[500px]"
               >
                 <img

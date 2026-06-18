@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import brochurePdf from '../assets/image/brochure.pdf';
-import logoImg from '../assets/image/logo.png';
+import logoImg from '../assets/image/logo.jpeg';
 import { useLanguage } from '../context/LanguageContext';
 
 const content = {

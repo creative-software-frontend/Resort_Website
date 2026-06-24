@@ -11,7 +11,8 @@ import {
   ShieldAlert,
   MessageSquare,
   BookmarkCheck,
-  FileCheck2
+  FileCheck2,
+  Globe
 } from 'lucide-react';
 import logoImg from '../assets/image/logo.jpeg';
 import footerBg from '../assets/image/3.jfif';
@@ -75,27 +76,14 @@ const Footer: React.FC = () => {
     {
       icon: MapPin,
       title: pick(UI.footer.contactTitles.headquarters, lang),
-      value: 'Suites 4B & 4C, Level 4, Crystal Heights, Gulshan-2, Dhaka-1212, Bangladesh',
-      href: 'https://maps.google.com/?q=Gulshan+2+Dhaka+Bangladesh'
+      value: 'Confidence Center, 2nd Building, 13th Floor, Flat-13/A, Shahjadpur, Gulshan, Dhaka.',
+      href: 'https://maps.google.com/?q=Confidence+Center+Shahjadpur+Gulshan+Dhaka'
     },
     {
-      icon: BookmarkCheck,
-      title: pick(UI.footer.contactTitles.salesDesk, lang),
-      value: '+880 1700-XXXXXX / +880 1800-XXXXXX',
-      href: 'tel:+8801700000000',
-      highlight: true
-    },
-    {
-      icon: MessageSquare,
-      title: pick(UI.footer.contactTitles.whatsapp, lang),
-      value: '+880 1900-XXXXXX (Chat Only)',
-      href: 'https://wa.me/8801900000000'
-    },
-    {
-      icon: Phone,
-      title: pick(UI.footer.contactTitles.pabxHotline, lang),
-      value: '+880 9612-SHIFA (74432)',
-      href: 'tel:+880961274432'
+      icon: Globe,
+      title: lang === 'bn' ? 'ওয়েবসাইট' : 'Website',
+      value: 'www.shifaproperties.com',
+      href: 'https://www.shifaproperties.com'
     },
     {
       icon: Mail,
@@ -104,10 +92,17 @@ const Footer: React.FC = () => {
       href: 'mailto:info@shifaproperties.com'
     },
     {
-      icon: FileCheck2,
-      title: pick(UI.footer.contactTitles.pressRoom, lang),
-      value: 'press@shifaproperties.com',
-      href: 'mailto:press@shifaproperties.com'
+      icon: Phone,
+      title: pick(UI.footer.contactTitles.pabxHotline, lang),
+      value: '02226617229',
+      href: 'tel:02226617229'
+    },
+    {
+      icon: BookmarkCheck,
+      title: pick(UI.footer.contactTitles.salesDesk, lang),
+      value: '01805 019801, 01805 019802',
+      href: 'tel:+8801805019801',
+      highlight: true
     },
     {
       icon: Clock,
@@ -137,22 +132,41 @@ const Footer: React.FC = () => {
     }
   ];
 
+  const OFFICE_LOCATIONS = [
+    {
+      title: "CORPORATE HEAD OFFICE",
+      address: "47, Nassa Heights, Gulshan South Avenue, Gulshan-1, Dhaka.",
+      email: "sales@shifapropertiesltd.com.bd",
+      cell: "01877715333",
+      hotline: "+8809610066666",
+      mapSrc: "https://maps.google.com/maps?q=47%20Nassa%20Heights,%20Gulshan%20South%20Avenue,%20Gulshan-1,%20Dhaka&t=&z=14&ie=UTF8&iwloc=&output=embed",
+      mapLink: "https://maps.google.com/?q=47+Nassa+Heights+Gulshan+South+Avenue+Gulshan-1+Dhaka"
+    },
+    {
+      title: "MOHAKHALI DOHS OFFICE",
+      address: "Plot-39B (1st Floor), Road-29, New DOHS Mohakhali, Dhaka",
+      email: "sales@shifapropertiesltd.com.bd",
+      cell: "01222845560",
+      hotline: "+8809610066666",
+      mapSrc: "https://maps.google.com/maps?q=New%20DOHS%20Mohakhali,%20Dhaka&t=&z=14&ie=UTF8&iwloc=&output=embed",
+      mapLink: "https://maps.google.com/?q=New+DOHS+Mohakhali+Dhaka"
+    },
+    {
+      title: "UTTARA OFFICE",
+      address: "2nd & 3rd Floor, House 18 & 20, Road 6/C, ACM & MF Tower, Dhaka 1230",
+      email: "sales@shifapropertiesltd.com.bd",
+      cell: "01894944666",
+      hotline: "+8809610066666",
+      mapSrc: "https://maps.google.com/maps?q=Uttara%20Dhaka&t=&z=14&ie=UTF8&iwloc=&output=embed",
+      mapLink: "https://maps.google.com/?q=Uttara+Dhaka"
+    }
+  ];
+
   return (
     <footer
       id="contact"
       className="relative overflow-hidden text-slate-100 border-t border-slate-900 bg-[#060614]"
     >
-      {/* BACKGROUND IMAGE LAYER - PURE AND UNFILTERED REVEAL */}
-      <div className="absolute inset-0 pointer-events-none select-none z-0">
-        <img
-          src={footerBg}
-          alt="Shifa Properties Ltd Group Hotel aerial view"
-          className="w-full h-full object-cover object-center scale-105 motion-safe:animate-[pulse_8s_ease-in-out_infinite]"
-        />
-        {/* Pure single smooth gradient overlay mask to transition beautifully into the page structure */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#060614]/40 to-[#060614]" />
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
 
         {/* TOP LAYER: Brand & Expanded Grid layout */}
@@ -238,6 +252,52 @@ const Footer: React.FC = () => {
             })}
           </div>
 
+        </div>
+
+        {/* OFFICE LOCATIONS MAP CARDS */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-12 border-b border-slate-800/40">
+          {OFFICE_LOCATIONS.map((loc, idx) => (
+            <div key={idx} className="flex flex-col space-y-4">
+              <div className="h-40 w-full relative rounded-xl overflow-hidden border border-slate-800 shadow-inner">
+                <iframe
+                  title={`Map of ${loc.title}`}
+                  src={loc.mapSrc}
+                  className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500 opacity-80 hover:opacity-100"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <div className="flex flex-col flex-grow">
+                <h4 className="text-white font-bold text-xs tracking-widest uppercase mb-3">{loc.title}</h4>
+                <div className="space-y-2 text-xs text-slate-200 mb-4 flex-grow">
+                  <div className="grid grid-cols-[60px_1fr] gap-2">
+                    <span className="font-semibold text-slate-400">Address:</span>
+                    <span className="leading-relaxed text-white">{loc.address}</span>
+                  </div>
+                  <div className="grid grid-cols-[60px_1fr] gap-2">
+                    <span className="font-semibold text-slate-400">Email:</span>
+                    <a href={`mailto:${loc.email}`} className="text-[#e0c26c] hover:underline transition-colors">{loc.email}</a>
+                  </div>
+                  <div className="grid grid-cols-[60px_1fr] gap-2">
+                    <span className="font-semibold text-slate-400">Cell:</span>
+                    <a href={`tel:${loc.cell}`} className="text-white hover:text-[#C9A84C] transition-colors">{loc.cell}</a>
+                  </div>
+                  <div className="grid grid-cols-[60px_1fr] gap-2">
+                    <span className="font-semibold text-slate-400">Hotline:</span>
+                    <a href={`tel:${loc.hotline}`} className="text-white hover:text-[#C9A84C] transition-colors">{loc.hotline}</a>
+                  </div>
+                </div>
+                <a
+                  href={loc.mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate-400 hover:text-[#C9A84C] transition-colors uppercase tracking-wider"
+                >
+                  View Map <ArrowUpRight className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* MIDDLE LAYER */}

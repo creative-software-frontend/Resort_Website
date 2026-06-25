@@ -9,13 +9,10 @@ import {
   Building2,
   FileText,
   ShieldAlert,
-  MessageSquare,
   BookmarkCheck,
-  FileCheck2,
   Globe
 } from 'lucide-react';
 import logoImg from '../assets/image/logo.jpeg';
-import footerBg from '../assets/image/3.jfif';
 import { useLanguage } from '../context/LanguageContext';
 import { UI, pick } from '../data/translations';
 
@@ -81,7 +78,7 @@ const Footer: React.FC = () => {
     },
     {
       icon: Globe,
-      title: lang === 'bn' ? 'ওয়েবসাইট' : 'Website',
+      title: lang === 'BN' ? 'ওয়েবসাইট' : 'Website',
       value: 'www.shifaproperties.com',
       href: 'https://www.shifaproperties.com'
     },
